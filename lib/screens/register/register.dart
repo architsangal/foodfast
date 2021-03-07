@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/home/home.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -10,6 +12,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final _controllerEMail = TextEditingController();
   final _controllerPassword = TextEditingController();
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +95,7 @@ class _RegisterState extends State<Register> {
                         if (EmailValidator.validate(_controllerEMail.text)) {
                           if (email[1] == "iiitb.org" ||
                               email[1] == "iiitb.ac.in") {
+                            register();
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => Home()),
@@ -109,5 +113,29 @@ class _RegisterState extends State<Register> {
             ],
           )),
         ));
+  }
+
+  void verification() async {
+    User user = FirebaseAuth.instance.currentUser;
+
+    if (!user.emailVerified) {
+      await user.sendEmailVerification();
+    }
+  }
+
+  void register() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: _controllerEMail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 }
