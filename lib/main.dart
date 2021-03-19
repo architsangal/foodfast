@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
-//import 'package:splashscreen/splashscreen.dart';
 
+//import 'package:splashscreen/splashscreen.dart';
+// https://www.youtube.com/watch?v=CcOYbbev5-Y
 // code reference taken from - https://www.geeksforgeeks.org/splash-screen-in-flutter/
 
 void main() {
@@ -11,13 +12,25 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Wrapper(),
+      home: Home(),
     );
+  }
+}
+
+class Home extends StatelessWidget {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        // Initialize FlutterFire:
+        future: _initialization,
+        builder: (context, snapshot) {
+          return Wrapper();
+        });
   }
 }

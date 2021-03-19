@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/forgot_password/forgot_password.dart';
 import 'package:foodfast/screens/register/register.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -95,7 +96,9 @@ class _SignInState extends State<SignIn> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            _signIn();
+                          },
                           child: new Text(
                             "Sign In",
                             style: TextStyle(color: Colors.white),
@@ -127,5 +130,21 @@ class _SignInState extends State<SignIn> {
             ],
           )),
         ));
+  }
+
+  void _signIn() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: _controllerEMail.text, password: _controllerPassword.text);
+
+      print(userCredential.toString());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
   }
 }
