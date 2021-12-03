@@ -4,6 +4,8 @@ import 'package:foodfast/screens/register/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignIn extends StatefulWidget {
+  const SignIn({Key key}) : super(key: key);
+
   @override
   _SignInState createState() => _SignInState();
 }
@@ -11,6 +13,8 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   final _controllerEMail = TextEditingController();
   final _controllerPassword = TextEditingController();
+
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +26,10 @@ class _SignInState extends State<SignIn> {
           body: Center(
               child: ListView(
             children: <Widget>[
-              Image(image: AssetImage('assets/auth.png'), fit: BoxFit.cover),
+              const Image(
+                  image: AssetImage('assets/auth.png'), fit: BoxFit.cover),
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: TextField(
                   controller: _controllerEMail,
                   cursorColor: Colors.blue,
@@ -32,29 +37,29 @@ class _SignInState extends State<SignIn> {
                   decoration: InputDecoration(
                       hintStyle: TextStyle(
                           color: Colors.blue[300], fontStyle: FontStyle.italic),
-                      contentPadding: EdgeInsets.all(20.0),
-                      enabledBorder: OutlineInputBorder(
+                      contentPadding: const EdgeInsets.all(20.0),
+                      enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
                           borderRadius: BorderRadius.all(Radius.circular(30))),
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
                           borderRadius: BorderRadius.all(Radius.circular(30))),
                       labelText: 'IIITB E-Mail',
                       hintText: '@iiib.org or @iiitb.ac.in',
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.email_rounded,
                         color: Colors.blue,
                       )),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: TextField(
                   controller: _controllerPassword,
                   obscureText: true,
                   cursorColor: Colors.blue,
                   cursorHeight: 25,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hoverColor: Colors.blue,
                       contentPadding: EdgeInsets.all(20.0),
                       enabledBorder: OutlineInputBorder(
@@ -72,16 +77,16 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
                         GestureDetector(
                           onTap: () => Navigator.of(context).push(
-                              new MaterialPageRoute(
+                              MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      new Forgot())),
-                          child: new Text(
+                                      const Forgot())),
+                          child: Text(
                             "Forgot Password?",
                             style: TextStyle(color: Colors.blue[600]),
                           ),
@@ -91,7 +96,7 @@ class _SignInState extends State<SignIn> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: RaisedButton(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
@@ -99,29 +104,27 @@ class _SignInState extends State<SignIn> {
                           onPressed: () {
                             _signIn();
                           },
-                          child: new Text(
+                          child: const Text(
                             "Sign In",
                             style: TextStyle(color: Colors.white),
                           ),
                           color: Colors.blue,
                         )),
                   ]),
-              new Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   GestureDetector(
-                    child: new Text('Don\'t have an account?',
-                        style: new TextStyle(color: Color(0xFF2E3233))),
+                    child: const Text('Don\'t have an account?',
+                        style: TextStyle(color: Color(0xFF2E3233))),
                     onTap: () {},
                   ),
                   GestureDetector(
-                      onTap: () => Navigator.of(context).push(
-                          new MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  new Register())),
-                      child: new Text(
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => const Register())),
+                      child: const Text(
                         'Register.',
-                        style: new TextStyle(
+                        style: TextStyle(
                             color: Colors.blueAccent,
                             fontWeight: FontWeight.bold),
                       ))
@@ -133,18 +136,28 @@ class _SignInState extends State<SignIn> {
   }
 
   void _signIn() async {
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-              email: _controllerEMail.text, password: _controllerPassword.text);
-
-      print(userCredential.toString());
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+    FirebaseAuth.instance.authStateChanges().listen((User user) {
+      if (user == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
       }
-    }
+    });
+    // try {
+    //     UserCredential userCredential = await FirebaseAuth.instance
+    //         .signInWithEmailAndPassword(
+    //             email: _controllerEMail.text, password: _controllerPassword.text);
+
+    //     // ignore: avoid_print
+    //     print(userCredential.toString());
+    //   } on FirebaseAuthException catch (e) {
+    //     if (e.code == 'user-not-found') {
+    //       // ignore: avoid_print
+    //       print('No user found for that email.');
+    //     } else if (e.code == 'wrong-password') {
+    //       // ignore: avoid_print
+    //       print('Wrong password provided for that user.');
+    //     }
+    //   }
   }
 }

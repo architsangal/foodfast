@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Forgot extends StatefulWidget {
+  const Forgot({Key key}) : super(key: key);
+
   @override
   _ForgotState createState() => _ForgotState();
 }
@@ -18,8 +20,9 @@ class _ForgotState extends State<Forgot> {
           body: Center(
               child: ListView(
             children: <Widget>[
-              Image(image: AssetImage('assets/forgot.png'), fit: BoxFit.cover),
-              Text(
+              const Image(
+                  image: AssetImage('assets/forgot.png'), fit: BoxFit.cover),
+              const Text(
                 "Forgot Password ?",
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -28,9 +31,9 @@ class _ForgotState extends State<Forgot> {
                     fontSize: 30),
               ),
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: TextField(
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.brown,
                   ),
                   controller: _controllerEMail,
@@ -40,11 +43,11 @@ class _ForgotState extends State<Forgot> {
                       hintStyle: TextStyle(
                           color: Colors.brown[300],
                           fontStyle: FontStyle.italic),
-                      contentPadding: EdgeInsets.all(20.0),
-                      enabledBorder: OutlineInputBorder(
+                      contentPadding: const EdgeInsets.all(20.0),
+                      enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.brown),
                           borderRadius: BorderRadius.all(Radius.circular(30))),
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.brown),
                           borderRadius: BorderRadius.all(Radius.circular(30))),
                       labelText: 'IIITB E-Mail',
@@ -59,13 +62,13 @@ class _ForgotState extends State<Forgot> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: RaisedButton(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
                           ),
                           onPressed: () {},
-                          child: new Text(
+                          child: const Text(
                             "Reset Password",
                             style: TextStyle(color: Colors.brown),
                           ),

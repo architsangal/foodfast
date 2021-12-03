@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-//import 'package:splashscreen/splashscreen.dart';
-// https://www.youtube.com/watch?v=CcOYbbev5-Y
-// code reference taken from - https://www.geeksforgeeks.org/splash-screen-in-flutter/
+import 'package:foodfast/screens/authenticate/sign_in.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +21,7 @@ class MyApp extends StatelessWidget {
 
 class Home extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  Home({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +29,7 @@ class Home extends StatelessWidget {
         // Initialize FlutterFire:
         future: _initialization,
         builder: (context, snapshot) {
-          return Wrapper();
+          return const SignIn();
         });
   }
 }

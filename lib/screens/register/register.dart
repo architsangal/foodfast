@@ -5,6 +5,8 @@ import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Register extends StatefulWidget {
+  const Register({Key key}) : super(key: key);
+
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -13,10 +15,8 @@ class _RegisterState extends State<Register> {
   final _controllerEMail = TextEditingController();
   final _controllerPassword = TextEditingController();
   final _controllerPasswordR = TextEditingController();
-  FirebaseAuth auth = FirebaseAuth.instance;
+  // FirebaseAuth auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  bool _success;
-  String _userEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +24,17 @@ class _RegisterState extends State<Register> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: Colors.brown),
         home: Scaffold(
-            backgroundColor: Color.fromARGB(255, 244, 245, 248),
+            backgroundColor: const Color.fromARGB(255, 244, 245, 248),
             body: Form(
               key: _formKey,
               child: Center(
                   child: ListView(
                 children: <Widget>[
-                  Image(
+                  const Image(
                       image: AssetImage('assets/register.png'),
                       fit: BoxFit.cover),
                   Padding(
-                    padding: EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(15.0),
                     child: TextFormField(
                       style: TextStyle(
                         color: Colors.blue[900],
@@ -56,25 +56,25 @@ class _RegisterState extends State<Register> {
                           hintStyle: TextStyle(
                               color: Colors.brown[300],
                               fontStyle: FontStyle.italic),
-                          contentPadding: EdgeInsets.all(15.0),
-                          enabledBorder: OutlineInputBorder(
+                          contentPadding: const EdgeInsets.all(15.0),
+                          enabledBorder: const OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.brown),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30))),
-                          border: OutlineInputBorder(
+                          border: const OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.brown),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30))),
                           labelText: 'IIITB E-Mail',
                           hintText: '@iiib.org or @iiitb.ac.in',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.email_rounded,
                             color: Colors.brown,
                           )),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(15.0),
                     child: TextFormField(
                       obscureText: true,
                       style: TextStyle(
@@ -94,24 +94,24 @@ class _RegisterState extends State<Register> {
                           hintStyle: TextStyle(
                               color: Colors.brown[300],
                               fontStyle: FontStyle.italic),
-                          contentPadding: EdgeInsets.all(15.0),
-                          enabledBorder: OutlineInputBorder(
+                          contentPadding: const EdgeInsets.all(15.0),
+                          enabledBorder: const OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.brown),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30))),
-                          border: OutlineInputBorder(
+                          border: const OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.brown),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30))),
                           labelText: 'Password',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.vpn_key_rounded,
                             color: Colors.brown,
                           )),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(15.0),
                     child: TextFormField(
                       obscureText: true,
                       style: TextStyle(
@@ -131,17 +131,17 @@ class _RegisterState extends State<Register> {
                           hintStyle: TextStyle(
                               color: Colors.brown[300],
                               fontStyle: FontStyle.italic),
-                          contentPadding: EdgeInsets.all(15.0),
-                          enabledBorder: OutlineInputBorder(
+                          contentPadding: const EdgeInsets.all(15.0),
+                          enabledBorder: const OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.brown),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30))),
-                          border: OutlineInputBorder(
+                          border: const OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.brown),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30))),
                           labelText: 'Confirm Password',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.vpn_key_rounded,
                             color: Colors.brown,
                           )),
@@ -151,7 +151,7 @@ class _RegisterState extends State<Register> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Padding(
-                            padding: EdgeInsets.all(15.0),
+                            padding: const EdgeInsets.all(15.0),
                             child: RaisedButton(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),
@@ -164,18 +164,20 @@ class _RegisterState extends State<Register> {
                                     if (email[1] == "iiitb.org" ||
                                         email[1] == "iiitb.ac.in") {
                                       var r = _register();
+                                      // ignore: avoid_print
                                       print(r);
                                       if (r == 1) {}
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => SignIn()),
+                                            builder: (context) =>
+                                                const SignIn()),
                                       );
                                     }
                                   }
                                 } else {}
                               },
-                              child: new Text(
+                              child: const Text(
                                 "Register",
                                 style: TextStyle(color: Colors.white),
                               ),
@@ -188,33 +190,35 @@ class _RegisterState extends State<Register> {
   }
 
   _register() async {
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: _controllerEMail.text, password: _controllerPassword.text);
+    // try {
+    //   UserCredential userCredential = await FirebaseAuth.instance
+    //       .createUserWithEmailAndPassword(
+    //           email: _controllerEMail.text, password: _controllerPassword.text);
 
-      User user = FirebaseAuth.instance.currentUser;
-      if (!user.emailVerified) {
-        await user.sendEmailVerification();
-        Toast.show("Verification Email Sent", context,
-            duration: Toast.LENGTH_LONG,
-            gravity: Toast.BOTTOM,
-            textColor: Colors.deepPurple[900],
-            backgroundColor: Colors.grey[50]);
-      }
-      return 0;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        Toast.show("Account Already exist", context,
-            duration: Toast.LENGTH_LONG,
-            gravity: Toast.BOTTOM,
-            textColor: Colors.deepPurple[900],
-            backgroundColor: Colors.grey[50]);
-        print('The account already exists for that email.');
-      }
-    }
+    //   User user = FirebaseAuth.instance.currentUser;
+    //   if (!user.emailVerified) {
+    //     await user.sendEmailVerification();
+    //     Toast.show("Verification Email Sent", context,
+    //         duration: Toast.LENGTH_LONG,
+    //         gravity: Toast.BOTTOM,
+    //         textColor: Colors.deepPurple[900],
+    //         backgroundColor: Colors.grey[50]);
+    //   }
+    //   return 0;
+    // } on FirebaseAuthException catch (e) {
+    //   if (e.code == 'weak-password') {
+    //     // ignore: avoid_print
+    //     print('The password provided is too weak.');
+    //   } else if (e.code == 'email-already-in-use') {
+    //     Toast.show("Account Already exist", context,
+    //         duration: Toast.LENGTH_LONG,
+    //         gravity: Toast.BOTTOM,
+    //         textColor: Colors.deepPurple[900],
+    //         backgroundColor: Colors.grey[50]);
+    //     // ignore: avoid_print
+    //     print('The account already exists for that email.');
+    //   }
+    // }
   }
 
   @override
