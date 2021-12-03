@@ -14,10 +14,16 @@ class _SignInState extends State<SignIn> {
   final _controllerEMail = TextEditingController();
   final _controllerPassword = TextEditingController();
 
-  FirebaseAuth auth = FirebaseAuth.instance;
-
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth.instance.authStateChanges().listen((User user) {
+      if (user == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
+      }
+    });
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: Colors.blue),
@@ -135,14 +141,32 @@ class _SignInState extends State<SignIn> {
         ));
   }
 
+  void _emailVerification() async {
+    User user = FirebaseAuth.instance.currentUser;
+
+    if (user != null && !user.emailVerified) {
+      await user.sendEmailVerification();
+    }
+  }
+
   void _signIn() async {
-    FirebaseAuth.instance.authStateChanges().listen((User user) {
-      if (user == null) {
-        print('User is currently signed out!');
-      } else {
-        print('User is signed in!');
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: _controllerEMail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        // ignore: avoid_print
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        // ignore: avoid_print
+        print('The account already exists for that email.');
       }
-    });
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+    }
+
     // try {
     //     UserCredential userCredential = await FirebaseAuth.instance
     //         .signInWithEmailAndPassword(

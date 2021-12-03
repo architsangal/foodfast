@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodfast/screens/register/verification_otp.dart';
 import 'package:toast/toast.dart';
 import 'package:foodfast/screens/authenticate/sign_in.dart';
 import 'package:email_validator/email_validator.dart';
@@ -84,7 +85,7 @@ class _RegisterState extends State<Register> {
                       autocorrect: false,
                       cursorColor: Colors.amberAccent,
                       validator: (value) {
-                        if (value.length < 6) {
+                        if (value.length < 2) {
                           return 'Weak Password';
                         }
                         return null;
@@ -163,16 +164,8 @@ class _RegisterState extends State<Register> {
                                       _controllerEMail.text)) {
                                     if (email[1] == "iiitb.org" ||
                                         email[1] == "iiitb.ac.in") {
-                                      var r = _register();
+                                      _register();
                                       // ignore: avoid_print
-                                      print(r);
-                                      if (r == 1) {}
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const SignIn()),
-                                      );
                                     }
                                   }
                                 } else {}
@@ -189,36 +182,58 @@ class _RegisterState extends State<Register> {
             )));
   }
 
-  _register() async {
-    // try {
-    //   UserCredential userCredential = await FirebaseAuth.instance
-    //       .createUserWithEmailAndPassword(
-    //           email: _controllerEMail.text, password: _controllerPassword.text);
+  Future<void> _register() async {
+    String mail = _controllerEMail.text;
+    String pass = _controllerPassword.text;
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: _controllerEMail.text, password: _controllerPassword.text);
 
-    //   User user = FirebaseAuth.instance.currentUser;
-    //   if (!user.emailVerified) {
-    //     await user.sendEmailVerification();
-    //     Toast.show("Verification Email Sent", context,
-    //         duration: Toast.LENGTH_LONG,
-    //         gravity: Toast.BOTTOM,
-    //         textColor: Colors.deepPurple[900],
-    //         backgroundColor: Colors.grey[50]);
-    //   }
-    //   return 0;
-    // } on FirebaseAuthException catch (e) {
-    //   if (e.code == 'weak-password') {
-    //     // ignore: avoid_print
-    //     print('The password provided is too weak.');
-    //   } else if (e.code == 'email-already-in-use') {
-    //     Toast.show("Account Already exist", context,
-    //         duration: Toast.LENGTH_LONG,
-    //         gravity: Toast.BOTTOM,
-    //         textColor: Colors.deepPurple[900],
-    //         backgroundColor: Colors.grey[50]);
-    //     // ignore: avoid_print
-    //     print('The account already exists for that email.');
-    //   }
-    // }
+      User user = FirebaseAuth.instance.currentUser;
+      if (user != null && !user.emailVerified) {
+        await user.sendEmailVerification();
+        Toast.show("Verification Email Sent", context,
+            duration: Toast.LENGTH_LONG,
+            gravity: Toast.BOTTOM,
+            textColor: Colors.deepPurple[900],
+            backgroundColor: Colors.grey[50]);
+      }
+
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+                email: _controllerEMail.text,
+                password: _controllerPassword.text);
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'user-not-found') {
+          // ignore: avoid_print
+          print('No user found for that email.');
+        } else if (e.code == 'wrong-password') {
+          // ignore: avoid_print
+          print('Wrong password provided for that user.');
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        // ignore: avoid_print
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        // ignore: avoid_print
+        print('The account already exists for that email.');
+        Toast.show("Account Already exist", context,
+            duration: Toast.LENGTH_LONG,
+            gravity: Toast.BOTTOM,
+            textColor: Colors.deepPurple[900],
+            backgroundColor: Colors.grey[50]);
+      }
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+    }
+
+    await Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => verification_otp(mail, pass)));
   }
 
   @override

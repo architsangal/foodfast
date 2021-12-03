@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:foodfast/screens/authenticate/sign_in.dart';
+import 'package:foodfast/screens/register/verification_otp.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -29,7 +31,7 @@ class Home extends StatelessWidget {
         // Initialize FlutterFire:
         future: _initialization,
         builder: (context, snapshot) {
-          return const SignIn();
+          return const SignIn(); //const verification_otp();
         });
   }
 }
