@@ -6,3 +6,4 @@ The next step in your Flutter application development is to install an IDE (Inte
 Flutter also provides official plugins for IntelliJ and Visual Studio Code. In case of Android Studio and IntelliJ, don’t forget to restart the IDE to activate the newly installed plugins (this is not needed for VS Code). Note that only stable versions of IDEs are supported, the Flutter plugin may not function properly on Beta, Canary, or EAP (Early Access Preview) builds.
 
 Now it’s time to create a new project. On the welcome screen, choose Start a new Flutter Project and select Flutter Application on the next screen.
+https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image4-555x334.png
