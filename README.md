@@ -99,7 +99,7 @@ The structure consists of at least two segments. A common pattern is to use a do
  <div>com.example.flutterfirebaseexample</div>
 Once you’ve decided on a name, open android/app/build.gradle in your code editor and update the applicationId to match the <b>Android package name:</b>
 In android/app/build.gradle file
- <div>
+ <pre>
 ...
 defaultConfig {
     // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
@@ -107,7 +107,7 @@ defaultConfig {
     ...
 }
 ...
- </div>
+ </pre>
  
  You can skip the app nickname and debug signing keys at this stage. Select Register app to continue.
 
@@ -123,7 +123,7 @@ We’ll now need to update our Gradle configuration to include the Google Servic
 
 Open android/build.gradle in your code editor and modify it to include the following:
 In android/build.gradle
-<div>
+<pre>
  buildscript {
   repositories {
     // Check that you have the following line (if not, add it):
@@ -144,10 +144,10 @@ allprojects {
     ...
   }
 }
- </div>
+ </pre>
  Finally, update the app level file at android/app/build.gradle to include the following:
  In android/app/build.gradle
- <div>
+ <pre>
   apply plugin: 'com.android.application'
 // Add this line
 apply plugin: 'com.google.gms.google-services'
@@ -159,7 +159,7 @@ dependencies {
   // Add the dependencies for any other desired Firebase products
   // https://firebase.google.com/docs/android/setup#available-libraries
 }
- </div>
+ </pre>
  With this update, we’re essentially applying the Google Services plugin as well as looking at how other Flutter Firebase plugins can be activated such as Analytics.
 
 From here, run your application on an Android device or simulator. If everything has worked correctly, you should get the following message in the dashboard:
@@ -183,7 +183,7 @@ Once again, we’ll need to add an “iOS Bundle ID”. It is possible to use th
 In this step, we’ll need to download the configuration file and add this to our Xcode project
  <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-10.png"/>
  <b>Download</b> GoogleService-Info.plist and move this into the root of your Xcode project within Runner:
- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-11.png"/>
+ <div><img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-11.png"/></div>
  Be sure to move this file within Xcode to create the proper file references.
 
 There are additional steps for installing the Firebase SDK and adding initialization code, but they are not necessary for this tutorial.
