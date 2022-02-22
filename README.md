@@ -36,8 +36,8 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
  <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image9-555x71.png"/>
  
   
- iOS
-In the case of iOS simulator, we first need to open it using the dropdown device menu:
+ <h1> iOS</h1>
+ <div>In the case of iOS simulator, we first need to open it using the dropdown device menu:</div>
   <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image8.png.webp"/>
   
   The Xcode installer will prompt you to install the missing components (if there are any). After a while, the simulator should appear and become available on the device menu.
