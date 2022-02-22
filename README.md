@@ -8,15 +8,17 @@ Flutter also provides official plugins for IntelliJ and Visual Studio Code. In c
 
 Now it’s time to create a new project. On the welcome screen, choose Start a new Flutter Project and select Flutter Application on the next screen.
 
-<img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image4-555x334.png"/>
+<img src = "READMEResources/img-1.jfif"/>
 
 On a next screen you’ll need to provide the Flutter SDK path and basic project details.
 
-<img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image14-555x309.png"/>
+<!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image14-555x309.png"/> -->
+<img src = "READMEResources/img-2.jfif"/>
 
 Finally, set your domain name for the package. It’s important for package name to be unique (for signing and publishing purposes). If you don’t own a domain, use com.github.<your login> . Leave the other options set to default values and confirm by clicking Finish.
  
- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image6-555x311.png"/>
+ <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image6-555x311.png"/> -->
+ <img src = "READMEResources/img-3.jfif"/>
   
   Our project is created. Let’s try to build it!
   
@@ -25,34 +27,42 @@ Finally, set your domain name for the package. It’s important for package name
   In the case of a physical Android device, it needs to be connected via a USB cable and have USB debugging enabled (see how to do that in the official developer guide).
 
 In the case of an Android emulator, we need to create a virtual device. First, let’s open the AVD manager by either using the icon on the toolbar or pressing Ctrl+Alt+F12 (Cmd+Alt+F12 on macOS) and typing the action name.
- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image7-555x149.png"/>
-  
+ <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image7-555x149.png"/> -->
+  <img src = "READMEResources/img-4.jfif"/>
+
  <div>Leave default settings on the next screens:</div>
-  <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image1-555x251.png"/>
-  <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image2-555x167.png"/>
+  <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image1-555x251.png"/> -->
+  <img src = "READMEResources/img-5.jfif"/>
+  <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image2-555x167.png"/> -->
+  <img src = "READMEResources/img-6.jfif"/>
   
   Creating an AVD is a one-off action. Once created, it will be available until explicitly removed.
 
 Now it’s time to run our app! Choose the desired device or emulator and press Shift+F10 (Ctrl+R on macOS) or use the Run button.
- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image9-555x71.png"/>
+ <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image9-555x71.png"/> -->
+ <img src = "READMEResources/img-7.jfif"/>
  
   
  <h1> iOS</h1>
  <div>In the case of iOS simulator, we first need to open it using the dropdown device menu:</div>
-  <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image8.png.webp"/>
+  <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image8.png.webp"/> -->
+  <img src = "READMEResources/img-8.jfif"/>
   
   The Xcode installer will prompt you to install the missing components (if there are any). After a while, the simulator should appear and become available on the device menu.
 
 Things are a little bit more complicated in the case of a physical iOS device. Assuming that the device is connected via a USB cable and unlocked (keep in mind the additional key prompt after connecting a cable), we first need to open the iOS module in Xcode:
- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image15-555x239.png"/>
+ <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image15-555x239.png"/> -->
+ <img src = "READMEResources/img-9.jfif"/>
  <div>Then go to the Signing & Capabilities settings tab and add a new personal team:</div>
-  <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image11-555x215.png"/>
+  <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image11-555x215.png"/> -->
+  <img src = "READMEResources/img-10.jfif"/>
   
   Sign in to your Apple ID (create a new one if needed). After closing the Accounts window, provisioning profiles will be generated.
 
 If you get an error which states that the app identifier cannot be registered like this:
   
-  <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image13.png.webp"/>
+  <!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image13.png.webp"/> -->
+  <img src = "READMEResources/img-11.jfif"/>
   
   It means that someone is already using your identifier. You need to change the Bundle Identifier value to something else.
 
@@ -70,7 +80,8 @@ Note that if you are using Linux with kernel 5.5.x, your builds may hang for an 
 
 At this point our app should look like this:
   
-<img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image3-298x530.png"/>
+<!-- <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image3-298x530.png"/> -->
+<img src = "READMEResources/img-13.jfif"/>
   
   Let’s click on FAB (Floating Action Button) and see that the counter is changing.
 
@@ -80,9 +91,11 @@ Now it’s time to write some code. Let’s go to the line #21 and change the bl
  <h1> Setting up Firebase Project</h1>
 
 First, log in with your Google account to manage your Firebase projects. From within the Firebase dashboard, select the Create new project button and give it a name:
-<img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-1.png"/>
+<!-- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-1.png"/> -->
+<img src = "READMEResources/img-14.jfif"/>
  <div>Next, we’re given the option to enable Google Analytics. This tutorial will not require Google Analytics, but you can also choose to add it to your project.</div>
- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-2.png"/>
+ <!-- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-2.png"/> -->
+ <img src = "READMEResources/img-15.jfif"/>
  If you choose to use Google Analytics, you will need to review and accept the terms and conditions prior to project creation.
 
 After pressing Continue, your project will be created and resources will be provisioned. You will then be directed to the dashboard for the new project.
@@ -91,7 +104,8 @@ After pressing Continue, your project will be created and resources will be prov
  <h2>Registering the App</h2>
  
 In order to add Android support to our Flutter application, select the Android logo from the dashboard. This brings us to the following screen:
- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-5.png"/>
+ <!-- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-5.png"/> -->
+ <img src = "READMEResources/img-16.jfif"/>
 
 The most important thing here is to match up the <b>Android package name</b> that you choose here with the one inside of our application.
 
@@ -116,7 +130,8 @@ defaultConfig {
 The next step is to add the Firebase configuration file into our Flutter project. This is important as it contains the API keys and other critical information for Firebase to use.
 
  Select Download <b>google-services.json</b> from this page:
- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-6.png"/>
+ <!-- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-6.png"/> -->
+ <img src = "READMEResources/img-17.jfif"/>
  Next, move the google-services.json file to the android/app directory within the Flutter project.
 
  <h2>Adding the Firebase SDK</h2>
@@ -164,7 +179,8 @@ dependencies {
  With this update, we’re essentially applying the Google Services plugin as well as looking at how other Flutter Firebase plugins can be activated such as Analytics.
 
 From here, run your application on an Android device or simulator. If everything has worked correctly, you should get the following message in the dashboard:
-<img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-7.png"/>
+<!-- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-7.png"/> -->
+<img src = "READMEResources/img-18.png"/>
  
  Next up, let’s add iOS support!
 
@@ -175,16 +191,20 @@ Head back over to the dashboard and select Add app and then iOS icon to be navig
 
  <h2>Registering an App</h2>
 Once again, we’ll need to add an “iOS Bundle ID”. It is possible to use the “Android package name” for consistency:
- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-8.png"/>
+ <!-- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-8.png"/> -->
+ <img src = "READMEResources/img-19.png"/>
  You’ll then need to make sure this matches up by opening the iOS project up in Xcode at ios/Runner/Runner.xcodeproj and changing the <b>Bundle identifier</b> under General:
- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-9.png"/>
+ <!-- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-9.png"/> -->
+ <img src = "READMEResources/img-20.png"/>
  Click <b>Register app</b> to move to the next screen.
 
  <b>Downloading the Config File</b>
 In this step, we’ll need to download the configuration file and add this to our Xcode project
- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-10.png"/>
+ <!-- <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-10.png"/> -->
+ <img src = "READMEResources/img-21.png"/>
  <b>Download</b> GoogleService-Info.plist and move this into the root of your Xcode project within Runner:
- <div><img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-11.png"/></div>
+ <!-- <div><img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-11.png"/></div> -->
+ <img src = "READMEResources/img-22.png"/>
  Be sure to move this file within Xcode to create the proper file references.
 
 There are additional steps for installing the Firebase SDK and adding initialization code, but they are not necessary for this tutorial.
