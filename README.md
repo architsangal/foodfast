@@ -1,5 +1,6 @@
 # FoodFast
-IIITB Canteen  App
+<div>IIITB Canteen  App</div>
+<h1>Setting up Project</h1>
 It’s all about (the) IDE
 The next step in your Flutter application development is to install an IDE (Integrated Development Environment). In theory, IDE is not needed and you can use only the SDK and any text editor for development. However, IDEs provide features like syntax highlighting, code completion, and debugger which are very helpful during the development process. In this tutorial, we will use Android Studio.
 
