@@ -44,7 +44,7 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
 
 Things are a little bit more complicated in the case of a physical iOS device. Assuming that the device is connected via a USB cable and unlocked (keep in mind the additional key prompt after connecting a cable), we first need to open the iOS module in Xcode:
  <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image15-555x239.png"/>
-  Then go to the Signing & Capabilities settings tab and add a new personal team:
+ <div>Then go to the Signing & Capabilities settings tab and add a new personal team:</div>
   <img src = "https://cdn-dppbk.nitrocdn.com/yQqYxSaTIazRSTSDbfxPrqFzJPJOhsTG/assets/static/optimized/rev-9a619c4/wp-content/uploads/2020/02/image11-555x215.png"/>
   
   Sign in to your Apple ID (create a new one if needed). After closing the Accounts window, provisioning profiles will be generated.
