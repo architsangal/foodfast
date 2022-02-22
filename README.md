@@ -75,3 +75,26 @@ At this point our app should look like this:
   Let’s click on FAB (Floating Action Button) and see that the counter is changing.
 
 Now it’s time to write some code. Let’s go to the line #21 and change the blue color to something else and use the Hot reload option (Ctrl+\ or Alt+\ on macOS) to apply changes immediately. Note that counter value was preserved.
+ 
+ 
+ <h1> Setting up Firebase Project</h1>
+
+First, log in with your Google account to manage your Firebase projects. From within the Firebase dashboard, select the Create new project button and give it a name:
+<img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-1.png"/>
+ <div>Next, we’re given the option to enable Google Analytics. This tutorial will not require Google Analytics, but you can also choose to add it to your project.</div>
+ <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-2.png"/>
+ If you choose to use Google Analytics, you will need to review and accept the terms and conditions prior to project creation.
+
+After pressing Continue, your project will be created and resources will be provisioned. You will then be directed to the dashboard for the new project.
+ 
+ <h1>Adding Android support</h1>
+ <h2>Registering the App</h2>
+ 
+In order to add Android support to our Flutter application, select the Android logo from the dashboard. This brings us to the following screen:
+ <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-5.png"/>
+ The most important thing here is to match up the Android package name that you choose here with the one inside of our application.
+
+The structure consists of at least two segments. A common pattern is to use a domain name, a company name, and the application name:
+
+com.example.flutterfirebaseexample
+Once you’ve decided on a name, open android/app/build.gradle in your code editor and update the applicationId to match the Android package name:
