@@ -62,7 +62,7 @@ After signing is configured, you can try to run the app from Android Studio. The
 
 Once the profile is trusted, you can launch the app from the home screen.
   
- Launch
+ <h1>Launch</h1>
 The first launch may take a few minutes because of initializing the emulator/simulator and installing the SDK components. However, it should be almost instant in most cases the next time. Alternatively, you can also use the flutter run  command in the terminal window.
 
 Note that if you are using Linux with kernel 5.5.x, your builds may hang for an infinite period of time due to this Flutter issue: https://github.com/flutter/flutter/issues/49185. This problem is probably caused by another Dart issue: https://github.com/dart-lang/sdk/issues/40589. At the time of writing this article, these are still under investigation.
