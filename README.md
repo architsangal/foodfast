@@ -92,12 +92,13 @@ After pressing Continue, your project will be created and resources will be prov
  
 In order to add Android support to our Flutter application, select the Android logo from the dashboard. This brings us to the following screen:
  <img src = "https://assets.digitalocean.com/articles/alligator/flutter/firebase-setup/flutter-firebase-5.png"/>
- The most important thing here is to match up the Android package name that you choose here with the one inside of our application.
+<pre>
+The most important thing here is to match up the Android package name that you choose here with the one inside of our application.
 
 The structure consists of at least two segments. A common pattern is to use a domain name, a company name, and the application name:
 
- <div>com.example.flutterfirebaseexample</div>
-Once you’ve decided on a name, open android/app/build.gradle in your code editor and update the applicationId to match the <b>Android package name:</b>
+com.example.flutterfirebaseexample
+Once you’ve decided on a name, open android/app/build.gradle in your code editor and update the applicationId to match the Android package name:</pre>
 In android/app/build.gradle file
  <pre>
 ...
