@@ -96,5 +96,5 @@ In order to add Android support to our Flutter application, select the Android l
 
 The structure consists of at least two segments. A common pattern is to use a domain name, a company name, and the application name:
 
-com.example.flutterfirebaseexample
-Once you’ve decided on a name, open android/app/build.gradle in your code editor and update the applicationId to match the Android package name:
+ <div>com.example.flutterfirebaseexample</div>
+Once you’ve decided on a name, open android/app/build.gradle in your code editor and update the applicationId to match the <b>Android package name:</b>
