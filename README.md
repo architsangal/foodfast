@@ -118,7 +118,7 @@ defaultConfig {
 The next step is to add the Firebase configuration file into our Flutter project. This is important as it contains the API keys and other critical information for Firebase to use.
 
  Select Download <b>google-services.json</b> from this page:
- <img src = "READMEResources/img-17.jfif"/>
+ <div><img src = "READMEResources/img-17.jfif"/></div>
  Next, move the google-services.json file to the android/app directory within the Flutter project.
 
  <h2>Adding the Firebase SDK</h2>
@@ -186,7 +186,7 @@ Once again, we’ll need to add an “iOS Bundle ID”. It is possible to use th
 In this step, we’ll need to download the configuration file and add this to our Xcode project
  <img src = "READMEResources/img-21.png"/>
  <b>Download</b> GoogleService-Info.plist and move this into the root of your Xcode project within Runner:
- <img src = "READMEResources/img-22.png"/>
+ <div><img src = "READMEResources/img-22.png"/></div>
  Be sure to move this file within Xcode to create the proper file references.
 
 There are additional steps for installing the Firebase SDK and adding initialization code, but they are not necessary for this tutorial.
