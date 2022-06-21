@@ -12,12 +12,23 @@ Flutter also provides official plugins for IntelliJ and Visual Studio Code. In c
 
 Step 1: Install snapd for Linux using the following command
 
+$sudo apt update && sudo apt install snapd.
+
+
+  <img src = "READMEResources/snap.jpeg"/>
+
 Step 2: Enter the following command in Terminal to install Flutter
+
+$sudo snap install flutter --classic.
+
+ <img src = "READMEResources/flutter_doc.jpeg"/>
 
 Step 3: Run flutter doctor to resolve dependencies
 
 Step 4:Update your path.You’ll probably want to update this variable permanently,
 so you can run flutter commands in any terminal session.
+
+(flutter sdk-path command to find your path.)
 
 1.Determine the path of your clone of the Flutter SDK. You need this in Step 3.
 
@@ -113,11 +124,17 @@ Once the profile is trusted, you can launch the app from the home screen.
  <h1>Launch</h1>
 
 Step 1: Open the command palette in VS Code using the shortcut ctrl+shift+P or selecting it in the 'View' Dropdown Menu.
+  
+ <img src = "READMEResources/run_1.png"/>
 
 Step 2: Launch the Flutter Emulator.
+ 
+ <img src = "READMEResources/run_2.png"/>
 
 Step 3: Once the Flutter Emulator is active,you can launch the Android App from the
 main.dart file by entering 'flutter run' in the Terminal.
+ 
+ <img src = "READMEResources/run_3.png"/>
 
  
  <h1> Setting up Firebase Project</h1>
