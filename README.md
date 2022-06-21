@@ -1,7 +1,9 @@
-# FoodFast
-<h4>IIITB Canteen  App</h4>
+# FoodFast (IIITB Canteen App)
 <h1>Setting up the Project</h1>
 The first step in your Flutter application development is to install an IDE (Integrated Development Environment). In theory, IDE is not needed and you can use only the SDK and any text editor for development.However, IDEs provide features like syntax highlighting, code completion, and debugger which are very helpful during the development process. In this tutorial, we will use Visual Studio along with an Android Simulator to run this project.
+
+Install VS Code from https://code.visualstudio.com/download.
+
 <h1></h1>
 Flutter also provides official plugins for IntelliJ and Visual Studio Code. In case of Android Studio and IntelliJ, don’t forget to restart the IDE to activate the newly installed plugins (this is not needed for VS Code). Note that only stable versions of IDEs are supported, the Flutter plugin may not function properly on Beta, Canary, or EAP (Early Access Preview) builds.
 
@@ -21,7 +23,9 @@ Lets Begin by installing all the required dependencies to run a flutter applicat
 
 ``` sudo snap install flutter --classic ```
 
-<h3>Step 3: Run flutter doctor to resolve dependencies</h3>
+<h3>Step 3: Run the following command to resolve dependencies</h3>
+
+```flutter doctor```
 
  <img src = "READMEResources/flutter_doc.jpeg"/>
 
@@ -30,22 +34,22 @@ Lets Begin by installing all the required dependencies to run a flutter applicat
 so you can run flutter commands in any terminal session.</h3>
 
 
-* .Determine the path of your clone of the Flutter SDK. You need this in Step 3.
+* Determine the path of your clone of the Flutter SDK. You need this in Step 3.
 
 * Open (or create) the rc file for your shell. For example, Linux uses the Bash shell by default, so edit $HOME/.bashrc. If you are using a different shell, 
 the file path and filename will be different on your machine.
 
-* .run ``` export PATH="$PATH:[PATH_OF_FLUTTER_GIT_DIRECTORY]/bin" ``` to add to PATH.
+* Run ``` export PATH="$PATH:[PATH_OF_FLUTTER_GIT_DIRECTORY]/bin" ``` to add to PATH.
 
-* use ``` flutter sdk-path ``` command to find your path.
+* Use ``` flutter sdk-path ``` command to find your path.
 
 
 
-* .Verify that the flutter/bin directory is now in your PATH by running: ```echo $PATH```.
+* Verify that the flutter/bin directory is now in your PATH by running: ```echo $PATH```.
 
 <h1></h1>
 
-## Installing Android Studio
+## Install Android Studio
 <h4>Note: Flutter relies on a Full Installation of Android Studio to supply its 
 Android platform dependencies.</h4>
 
