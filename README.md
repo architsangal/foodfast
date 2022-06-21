@@ -12,7 +12,7 @@ Flutter also provides official plugins for IntelliJ and Visual Studio Code. In c
 
 Step 1: Install snapd for Linux using the following command
 
-$sudo apt update && sudo apt install snapd.
+``` sudo apt update && sudo apt install snapd ```
 
 
   <img src = "READMEResources/snap.jpeg"/>
