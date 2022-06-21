@@ -133,7 +133,7 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
   
 
   
- <h1>Launch</h1>
+ <h1>Launch The Project</h1>
 
 <h3>Step 1: Open the command palette in VS Code using the shortcut ctrl+shift+P or selecting it in the 'View' Dropdown Menu.</h3>
   
@@ -144,7 +144,7 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
  <img src = "READMEResources/run_2.png"/>
 
 <h3>Step 3: Once the Flutter Emulator is active,you can launch the Android App from the
-main.dart file by running the following command in the Terminal.</h3>
+"main.dart" file by running the following command in the Terminal.</h3>
  
  ```flutter run```
  
