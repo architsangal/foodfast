@@ -92,7 +92,7 @@ After signing is configured, you can try to run the app from Android Studio. The
 
 Once the profile is trusted, you can launch the app from the home screen.
 
- <h1>Android</h1>
+ <h2>Setting Up your Android Emulator(Android Studio)</h2>
   
   In the case of a physical Android device, it needs to be connected via a USB cable and have USB debugging enabled (see how to do that in the official developer guide).
 
