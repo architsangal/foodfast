@@ -4,21 +4,47 @@
 It’s all about (the) IDE
 The next step in your Flutter application development is to install an IDE (Integrated Development Environment). In theory, IDE is not needed and you can use only the SDK and any text editor for development. However, IDEs provide features like syntax highlighting, code completion, and debugger which are very helpful during the development process. In this tutorial, we will use Android Studio.
 
+
 Flutter also provides official plugins for IntelliJ and Visual Studio Code. In case of Android Studio and IntelliJ, don’t forget to restart the IDE to activate the newly installed plugins (this is not needed for VS Code). Note that only stable versions of IDEs are supported, the Flutter plugin may not function properly on Beta, Canary, or EAP (Early Access Preview) builds.
 
+## Linux
+### Installing Flutter and updating path variable.
+
+Step 1: Install snapd for Linux using the following command
+
+Step 2: Enter the following command in Terminal to install Flutter
+
+Step 3: Run flutter doctor to resolve dependencies
+
+Step 4:Update your path.You’ll probably want to update this variable permanently,
+so you can run flutter commands in any terminal session.
+
+1.Determine the path of your clone of the Flutter SDK. You need this in Step 3.
+
+2.Open (or create) the rc file for your shell. For example, Linux uses the Bash shell by default, so edit $HOME/.bashrc. If you are using a different shell, 
+the file path and filename will be different on your machine.
+
+3.run 'export PATH="$PATH:[PATH_OF_FLUTTER_GIT_DIRECTORY]/bin" ' to add to PATH.
+
+4.Verify that the flutter/bin directory is now in your PATH by running: 'echo $PATH'.
+
+
+### Installing Android Studio
+Note: Flutter relies on a Full iIstallation of Android Studio to supply its 
+Android platform dependencies.
+
+Step 1: Install Android Studio from https://developer.android.com/studio .
+
+Step 2: Download and install Android Studio.
+
+Step 3: Start Android Studio, and go through the ‘Android Studio Setup Wizard’. This installs the latest Android SDK, Android SDK Command-line Tools, and Android SDK Build-Tools, which are required by Flutter when developing for Android.
+
+Step 4: Run flutter doctor to confirm that Flutter has located your installation of Android Studio. If Flutter cannot locate it.
+
+Step 5: Run flutter config --android-studio-dir <directory> to set the directory that Android Studio is installed to.
 Now it’s time to create a new project. On the welcome screen, choose Start a new Flutter Project and select Flutter Application on the next screen.
 
-<img src = "READMEResources/img-1.jfif"/>
-
-On a next screen you’ll need to provide the Flutter SDK path and basic project details.
-<img src = "READMEResources/img-2.jfif"/>
-
-Finally, set your domain name for the package. It’s important for package name to be unique (for signing and publishing purposes). If you don’t own a domain, use com.github.<your login> . Leave the other options set to default values and confirm by clicking Finish.
  
- <img src = "READMEResources/img-3.jfif"/>
-  
-  Our project is created. Let’s try to build it!
-  
  <h1>Android</h1>
   
   In the case of a physical Android device, it needs to be connected via a USB cable and have USB debugging enabled (see how to do that in the official developer guide).
@@ -34,7 +60,29 @@ In the case of an Android emulator, we need to create a virtual device. First, l
 
 Now it’s time to run our app! Choose the desired device or emulator and press Shift+F10 (Ctrl+R on macOS) or use the Run button.
  <img src = "READMEResources/img-7.jfif"/>
- 
+ ## Setting up your Android Emulator(VS CODE)
+
+#### To prepare to run and test your Flutter app on the Android emulator, follow these steps:
+
+Step 1: Enable VM acceleration on your machine.
+
+Step 2: Launch Android Studio, click the AVD Manager icon, and select Create Virtual Device…
+
+1.In older versions of Android Studio, you should instead launch Android Studio > Tools > Android > AVD Manager and select Create Virtual Device…. (The Android submenu is only present when inside an Android project.)
+
+2.If you do not have a project open, you can choose Configure > AVD Manager and select Create Virtual Device…
+
+Step 3: Choose a device definition and select Next.
+
+Step 4: Select one or more system images for the Android versions you want to emulate, and select Next. An x86 or x86_64 image is recommended.
+
+Step 5: Under Emulated Performance, select Hardware - GLES 2.0 to enable hardware acceleration.
+
+Step 6: Verify the AVD configuration is correct, and select Finish.
+
+Step 7: In Android Virtual Device Manager, click Run in the toolbar. The emulator starts up and displays the default canvas for your selected OS version and device.
+
+#### Now that we have installed all the dependencies,we are ready to run the project in VS Code.
   
  <h1> iOS</h1>
  <div>In the case of iOS simulator, we first need to open it using the dropdown device menu:</div>
@@ -63,18 +111,14 @@ After signing is configured, you can try to run the app from Android Studio. The
 Once the profile is trusted, you can launch the app from the home screen.
   
  <h1>Launch</h1>
-The first launch may take a few minutes because of initializing the emulator/simulator and installing the SDK components. However, it should be almost instant in most cases the next time. Alternatively, you can also use the flutter run  command in the terminal window.
 
-Note that if you are using Linux with kernel 5.5.x, your builds may hang for an infinite period of time due to this Flutter issue: https://github.com/flutter/flutter/issues/49185. This problem is probably caused by another Dart issue: https://github.com/dart-lang/sdk/issues/40589. At the time of writing this article, these are still under investigation.
+Step 1: Open the command palette in VS Code using the shortcut ctrl+shift+P or selecting it in the 'View' Dropdown Menu.
 
-At this point our app should look like this:
-  
-<img src = "READMEResources/img-13.jfif"/>
-  
-  Let’s click on FAB (Floating Action Button) and see that the counter is changing.
+Step 2: Launch the Flutter Emulator.
 
-Now it’s time to write some code. Let’s go to the line #21 and change the blue color to something else and use the Hot reload option (Ctrl+\ or Alt+\ on macOS) to apply changes immediately. Note that counter value was preserved.
- 
+Step 3: Once the Flutter Emulator is active,you can launch the Android App from the
+main.dart file by entering 'flutter run' in the Terminal.
+
  
  <h1> Setting up Firebase Project</h1>
 
