@@ -6,7 +6,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Register extends StatefulWidget {
-  const Register({Key key}) : super(key: key);
+  const Register({Key? key}) : super(key: key);
 
   @override
   _RegisterState createState() => _RegisterState();
@@ -85,7 +85,7 @@ class _RegisterState extends State<Register> {
                       autocorrect: false,
                       cursorColor: Colors.amberAccent,
                       validator: (value) {
-                        if (value.length < 2) {
+                        if (value!.length < 2) {
                           return 'Weak Password';
                         }
                         return null;
@@ -159,7 +159,7 @@ class _RegisterState extends State<Register> {
                               ),
                               onPressed: () {
                                 var email = _controllerEMail.text.split("@");
-                                if (_formKey.currentState.validate()) {
+                                if (_formKey.currentState!.validate()) {
                                   if (EmailValidator.validate(
                                       _controllerEMail.text)) {
                                     if (email[1] == "iiitb.org" ||

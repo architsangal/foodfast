@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/forgot_password/forgot_password.dart';
 import 'package:foodfast/screens/register/register.dart';
+import 'package:foodfast/screens/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({Key key}) : super(key: key);
+  const SignIn({Key? key}) : super(key: key);
 
   @override
   _SignInState createState() => _SignInState();
@@ -16,13 +17,13 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseAuth.instance.authStateChanges().listen((User user) {
-      if (user == null) {
-        print('User is currently signed out!');
-      } else {
-        print('User is signed in!');
-      }
-    });
+    // FirebaseAuth.instance.authStateChanges().listen((User user) {
+    //  if (user == null) {
+    //   print('User is currently signed out!');
+    // } else {
+    // print('User is signed in!');
+    // }
+    //});
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -75,6 +76,7 @@ class _SignInState extends State<SignIn> {
                           borderSide: BorderSide(color: Colors.blue),
                           borderRadius: BorderRadius.all(Radius.circular(30))),
                       labelText:
+                          // ignore: todo
                           'Password', // TODO show password or don't show password eye symbol
                       prefixIcon: Icon(
                         Icons.vpn_key_rounded,
@@ -90,8 +92,7 @@ class _SignInState extends State<SignIn> {
                         GestureDetector(
                           onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      const Forgot())),
+                                  builder: (BuildContext context) => Forgot())),
                           child: Text(
                             "Forgot Password?",
                             style: TextStyle(color: Colors.blue[600]),
@@ -127,7 +128,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   GestureDetector(
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => const Register())),
+                          builder: (BuildContext context) => Register())),
                       child: const Text(
                         'Register.',
                         style: TextStyle(
@@ -152,36 +153,20 @@ class _SignInState extends State<SignIn> {
   void _signIn() async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
+          .signInWithEmailAndPassword(
               email: _controllerEMail.text, password: _controllerPassword.text);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        // ignore: avoid_print
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        // ignore: avoid_print
-        print('The account already exists for that email.');
-      }
-    } catch (e) {
       // ignore: avoid_print
-      print(e);
+      print(userCredential.toString());
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (BuildContext context) => Home()));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        // ignore: avoid_print
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        // ignore: avoid_print
+        print('Wrong password provided for that user.');
+      }
     }
-
-    // try {
-    //     UserCredential userCredential = await FirebaseAuth.instance
-    //         .signInWithEmailAndPassword(
-    //             email: _controllerEMail.text, password: _controllerPassword.text);
-
-    //     // ignore: avoid_print
-    //     print(userCredential.toString());
-    //   } on FirebaseAuthException catch (e) {
-    //     if (e.code == 'user-not-found') {
-    //       // ignore: avoid_print
-    //       print('No user found for that email.');
-    //     } else if (e.code == 'wrong-password') {
-    //       // ignore: avoid_print
-    //       print('Wrong password provided for that user.');
-    //     }
-    //   }
   }
 }
