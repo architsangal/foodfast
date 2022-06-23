@@ -5,10 +5,10 @@ import 'package:foodfast/screens/register/verification_otp.dart';
 import 'firebase_options.dart';
 
 void main() async {
-//  WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initialissszeApp(
-  // options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
