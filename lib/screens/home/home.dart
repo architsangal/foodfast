@@ -30,13 +30,12 @@ class _HomeState extends State<Home> {
                       docRef.get().then(
                         (DocumentSnapshot doc) {
                           final counter = doc.data()['order_counter'];
-                          // final queue = doc.data()['global_queue'];
+                          final queue = doc.data()['global_queue'];
                           print(counter);
-                          //  docRef.update({
-                          //    "global_queue": FieldValue.arrayUnion([counter]),
-                          //   });
+                          docRef.update({
+                            "global_queue": FieldValue.arrayUnion([counter]),
+                          });
                           docRef.update({'order_counter': counter + 1});
-                          // ...
                         },
                         onError: (e) => print("Error getting document: $e"),
                       );
