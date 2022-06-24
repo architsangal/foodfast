@@ -97,7 +97,7 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
 <h3>Step 3: Once the Flutter Emulator is active,you can launch the Android App from the
 "main.dart" file by running the following command in the Terminal.</h3>
  
- ```flutter run```
+ ``` flutter run --no-sound-null-safety```
  
  <img src = "READMEResources/run_3.png"/>
 
@@ -139,10 +139,6 @@ This automatically registers your per-platform apps with Firebase and adds a ```
  <h4>Note: Run the following command to resolve any dependencies.</h4>
  
  ```flutter pub get```
- 
- <h4>Note: Use the following command to run the project.</h4>
- 
- ``` flutter run --no-sound-null-safety```
  
 There are additional steps for installing the Firebase SDK and adding initialization code, but they are not necessary for this tutorial.
 
