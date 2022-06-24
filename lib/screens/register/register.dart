@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/register/verification_otp.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:toast/toast.dart';
-import 'package:foodfast/screens/authenticate/sign_in.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:email_validator/email_validator.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _RegisterState createState() => _RegisterState();
 }
 
@@ -153,9 +156,13 @@ class _RegisterState extends State<Register> {
                       children: <Widget>[
                         Padding(
                             padding: const EdgeInsets.all(15.0),
-                            child: RaisedButton(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.brown,
+                                elevation: 5,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                ),
                               ),
                               onPressed: () {
                                 var email = _controllerEMail.text.split("@");
@@ -174,7 +181,6 @@ class _RegisterState extends State<Register> {
                                 "Register",
                                 style: TextStyle(color: Colors.white),
                               ),
-                              color: Colors.brown,
                             )),
                       ]),
                 ],
@@ -186,13 +192,15 @@ class _RegisterState extends State<Register> {
     String mail = _controllerEMail.text;
     String pass = _controllerPassword.text;
     try {
+      // ignore: unused_local_variable
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: _controllerEMail.text, password: _controllerPassword.text);
 
       User user = FirebaseAuth.instance.currentUser;
-      if (user != null && !user.emailVerified) {
+      if (!user.emailVerified) {
         await user.sendEmailVerification();
+        // ignore: use_build_context_synchronously
         Toast.show("Verification Email Sent", context,
             duration: Toast.LENGTH_LONG,
             gravity: Toast.BOTTOM,
@@ -201,6 +209,7 @@ class _RegisterState extends State<Register> {
       }
 
       try {
+        // ignore: unused_local_variable
         UserCredential userCredential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(
                 email: _controllerEMail.text,
@@ -232,6 +241,7 @@ class _RegisterState extends State<Register> {
       print(e);
     }
 
+    // ignore: use_build_context_synchronously
     await Navigator.of(context).push(MaterialPageRoute(
         builder: (BuildContext context) => verification_otp(mail, pass)));
   }

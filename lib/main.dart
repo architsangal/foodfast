@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_core/firebase_core.dart';
 import 'package:foodfast/screens/authenticate/sign_in.dart';
-import 'package:foodfast/screens/register/verification_otp.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -9,7 +9,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
         // Initialize FlutterFire:
         future: _initialization,
         builder: (context, snapshot) {
-          return SignIn(); //const verification_otp();
+          return const SignIn(); //const verification_otp();
         });
   }
 }

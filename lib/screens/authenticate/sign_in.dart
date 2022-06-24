@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:foodfast/screens/forgot_password/forgot_password.dart';
 import 'package:foodfast/screens/register/register.dart';
 import 'package:foodfast/screens/home/home.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignInState createState() => _SignInState();
 }
 
@@ -92,7 +94,8 @@ class _SignInState extends State<SignIn> {
                         GestureDetector(
                           onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
-                                  builder: (BuildContext context) => Forgot())),
+                                  builder: (BuildContext context) =>
+                                      const Forgot())),
                           child: Text(
                             "Forgot Password?",
                             style: TextStyle(color: Colors.blue[600]),
@@ -104,9 +107,13 @@ class _SignInState extends State<SignIn> {
                   children: <Widget>[
                     Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blue,
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
                           ),
                           onPressed: () {
                             _signIn();
@@ -115,7 +122,6 @@ class _SignInState extends State<SignIn> {
                             "Sign In",
                             style: TextStyle(color: Colors.white),
                           ),
-                          color: Colors.blue,
                         )),
                   ]),
               Row(
@@ -128,7 +134,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   GestureDetector(
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => Register())),
+                          builder: (BuildContext context) => const Register())),
                       child: const Text(
                         'Register.',
                         style: TextStyle(
@@ -142,14 +148,6 @@ class _SignInState extends State<SignIn> {
         ));
   }
 
-  void _emailVerification() async {
-    User user = FirebaseAuth.instance.currentUser;
-
-    if (user != null && !user.emailVerified) {
-      await user.sendEmailVerification();
-    }
-  }
-
   void _signIn() async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
@@ -157,8 +155,9 @@ class _SignInState extends State<SignIn> {
               email: _controllerEMail.text, password: _controllerPassword.text);
       // ignore: avoid_print
       print(userCredential.toString());
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (BuildContext context) => Home()));
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (BuildContext context) => const Home()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         // ignore: avoid_print

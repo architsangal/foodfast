@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 
-// ignore: camel_case_types
+// ignore: camel_case_types, must_be_immutable
 class verification_otp extends StatefulWidget {
   String email;
   String password;
@@ -13,11 +14,13 @@ class verification_otp extends StatefulWidget {
   //     : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _verification_otpState createState() => _verification_otpState();
 }
 
 // ignore: camel_case_types
 class _verification_otpState extends State<verification_otp> {
+  // ignore: unused_field
   final _controllerEMail = TextEditingController();
 
   @override
@@ -72,9 +75,13 @@ class _verification_otpState extends State<verification_otp> {
                   Widget>[
                 Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.amber[300],
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
                       ),
                       onPressed: () async {
                         String email = widget.email;
@@ -85,6 +92,7 @@ class _verification_otpState extends State<verification_otp> {
                         print(password);
 
                         try {
+                          // ignore: unused_local_variable
                           UserCredential userCredential = await FirebaseAuth
                               .instance
                               .signInWithEmailAndPassword(
@@ -93,8 +101,10 @@ class _verification_otpState extends State<verification_otp> {
                           );
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
+                            // ignore: avoid_print
                             print('No user found for that email.');
                           } else if (e.code == 'wrong-password') {
+                            // ignore: avoid_print
                             print('Wrong password provided for that user.');
                           }
                         }
@@ -107,7 +117,6 @@ class _verification_otpState extends State<verification_otp> {
                         "Verify",
                         style: TextStyle(color: Colors.brown),
                       ),
-                      color: Colors.amber[300],
                     )),
               ]),
             ],
