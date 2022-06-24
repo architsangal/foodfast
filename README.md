@@ -17,7 +17,7 @@ For this tutorial we will be assuming that you have flutter SDK and Android Stud
 
 <h1></h1>
 
-<h1>Setting up your Android Emulator(iOS)</h1>
+<h2>Setting up your Android Emulator(iOS)</h2>
  <div>In the case of iOS simulator, we first need to open it using the dropdown device menu:</div>
   <img src = "READMEResources/img-8.jfif"/>
   
@@ -84,7 +84,7 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
   
 
   
- <h1>Launch The Project</h1>
+ <h2>Launch The Project</h2>
 
 <h3>Step 1: Open the command palette in VS Code using the shortcut ctrl+shift+P or selecting it in the 'View' Dropdown Menu.</h3>
   
@@ -118,13 +118,12 @@ After pressing Continue, your project will be created and resources will be prov
  
  <h1>Adding Android,Ios and Web support</h1>
 
-In your project dashboard,click the flutter icon,
+In your project dashboard,click on the flutter icon.
 
 <img src = "READMEResources/firebase_1.jpeg"/>
 
 Now follow all the steps mentioned in this page,
 
-Note:Make sure you login to your firebase account while you initialise your firebase_cli in your terminal.
 
 <img src = "READMEResources/firebase_2.jpeg"/>
  
@@ -132,6 +131,8 @@ Note:Make sure you login to your firebase account while you initialise your fire
 This automatically registers your per-platform apps with Firebase and adds a ```lib/firebase_options.dart``` configuration file to your Flutter project.
  
  
+ <h4>Note:Make sure you login to your firebase account while you initialise your firebase_cli in your terminal.</h4>
+
  <h4>Note: Make sure that you have playstore installed in the Android Emulator device that you use.</h4>
  
  
