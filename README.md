@@ -133,7 +133,7 @@ This automatically registers your per-platform apps with Firebase and adds a ```
  
  ```flutter pub get```
  
- <h4>Note: Run the following command to run your project.</h4>
+ <h4>Note: Use the following command to run the project.</h4>
  
  ``` flutter run --no-sound-null-safety```
  
