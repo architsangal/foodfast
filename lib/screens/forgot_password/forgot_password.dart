@@ -4,6 +4,7 @@ class Forgot extends StatefulWidget {
   const Forgot({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ForgotState createState() => _ForgotState();
 }
 
@@ -63,16 +64,19 @@ class _ForgotState extends State<Forgot> {
                   children: <Widget>[
                     Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.amber[300],
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
                           ),
                           onPressed: () {},
                           child: const Text(
                             "Reset Password",
                             style: TextStyle(color: Colors.brown),
                           ),
-                          color: Colors.amber[300],
                         )),
                   ]),
             ],

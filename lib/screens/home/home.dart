@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -31,12 +32,19 @@ class _HomeState extends State<Home> {
                         (DocumentSnapshot doc) {
                           final counter = doc.data()['order_counter'];
                           final queue = doc.data()['global_queue'];
+                          // ignore: avoid_print
                           print(counter);
                           docRef.update({
                             "global_queue": FieldValue.arrayUnion([counter]),
                           });
+                          int curr = queue[0];
+                          // ignore: avoid_print
+                          print("Your Order Number: $counter");
+                          // ignore: avoid_print
+                          print("Currently Processing: $curr");
                           docRef.update({'order_counter': counter + 1});
                         },
+                        // ignore: avoid_print
                         onError: (e) => print("Error getting document: $e"),
                       );
                     });
