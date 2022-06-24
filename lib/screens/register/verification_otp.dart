@@ -6,7 +6,7 @@ class verification_otp extends StatefulWidget {
   String email;
   String password;
 
-  verification_otp(this.email, this.password, {Key key}) : super(key: key);
+  verification_otp(this.email, this.password, {Key? key}) : super(key: key);
 
   // verification_otp(String email, String password,
   //     {Key key, this.email, this.password})
