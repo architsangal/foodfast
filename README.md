@@ -101,19 +101,26 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
 First, log in with your Google account to manage your Firebase projects. From within the Firebase dashboard, select the Create new project button and give it a name:
 
 <img src = "READMEResources/img-14.jfif"/>
- <div>Next, we’re given the option to enable Google Analytics. This tutorial will not require Google Analytics, but you can also choose to add it to your project.</div>
+
+<div>Next, we’re given the option to enable Google Analytics. This tutorial will not require Google Analytics, but you can also choose to add it to your project.</div>
 
  <img src = "READMEResources/img-15.jfif"/>
- If you choose to use Google Analytics, you will need to review and accept the terms and conditions prior to project creation.
+
+If you choose to use Google Analytics, you will need to review and accept the terms and conditions prior to project creation.
 
 After pressing Continue, your project will be created and resources will be provisioned. You will then be directed to the dashboard for the new project.
  
  <h1>Adding Android,Ios and Web support</h1>
- In your project dashboard,click the flutter icon,
-  <img src = "READMEResources/firebase_1.jpeg"/>
-  Now follow all the steps mentioned in this page,
-  Note:Make sure you login to your firebase account while you initialise your firebase_cli in your terminal.
- <img src = "READMEResources/firebase_2.jpeg"/>
+
+In your project dashboard,click the flutter icon,
+
+<img src = "READMEResources/firebase_1.jpeg"/>
+
+Now follow all the steps mentioned in this page,
+
+Note:Make sure you login to your firebase account while you initialise your firebase_cli in your terminal.
+
+<img src = "READMEResources/firebase_2.jpeg"/>
  
  
 This automatically registers your per-platform apps with Firebase and adds a ```lib/firebase_options.dart``` configuration file to your Flutter project.
