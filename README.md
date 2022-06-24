@@ -1,14 +1,18 @@
 # FoodFast (IIITB Canteen App)
 <h1>Setting up the Project</h1>
 The first step in your Flutter application development is to install an IDE (Integrated Development Environment). In theory, IDE is not needed and you can use only the SDK and any text editor for development.However, IDEs provide features like syntax highlighting, code completion, and debugger which are very helpful during the development process. In this tutorial, we will use Visual Studio along with an Android Simulator to run this project.
+<br> <br/>
 
 Install VS Code from https://code.visualstudio.com/download.
+
+Install Flutter SDK from https://docs.flutter.dev/get-started/install
+
+Install Android Studio from https://developer.android.com/studio?gclsrc=ds&gclsrc=ds
 
 <h1></h1>
 Flutter also provides official plugins for IntelliJ and Visual Studio Code. In case of Android Studio and IntelliJ, don’t forget to restart the IDE to activate the newly installed plugins (this is not needed for VS Code). Note that only stable versions of IDEs are supported, the Flutter plugin may not function properly on Beta, Canary, or EAP (Early Access Preview) builds.
 <h1></h1>
 
-Lets Begin by installing all the required dependencies to run a flutter application.
 For this tutorial we will be assuming that you have flutter SDK and Android Studio installed in your system.
 
 <h1>Setting up your Android Emulator(iOS)</h1>
