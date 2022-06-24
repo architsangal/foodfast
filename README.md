@@ -54,25 +54,25 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
  <img src = "READMEResources/img-7.jfif"/>
  ## Setting up your Android Emulator(VS CODE)
 
-#### To prepare to run and test your Flutter app on the Android emulator, follow these steps:
+### To prepare to run and test your Flutter app on the Android emulator, follow these steps:
 
-<h3>Step 1: Enable VM acceleration on your machine.</h3>
+<h4>Step 1: Enable VM acceleration on your machine.</h4>
 
-<h3>Step 2: Launch Android Studio, click the AVD Manager icon, and select Create Virtual Device.</h3>
+<h4>Step 2: Launch Android Studio, click the AVD Manager icon, and select Create Virtual Device.</h4>
 
 * In older versions of Android Studio, you should instead launch Android Studio > Tools > Android > AVD Manager and select Create Virtual Device…. (The Android submenu is only present when inside an Android project.)
 
 * If you do not have a project open, you can choose Configure > AVD Manager and select Create Virtual Device…
 
-<h3>Step 3: Choose a device definition and select Next.</h3>
+<h4>Step 3: Choose a device definition and select Next.</h4>
 
-<h3>Step 4: Select one or more system images for the Android versions you want to emulate, and select Next. An x86 or x86_64 image is recommended.</h3>
+<h4>Step 4: Select one or more system images for the Android versions you want to emulate, and select Next. An x86 or x86_64 image is recommended.</h4>
 
-<h3>Step 5: Under Emulated Performance, select Hardware - GLES 2.0 to enable hardware acceleration.</h3>
+<h4>Step 5: Under Emulated Performance, select Hardware - GLES 2.0 to enable hardware acceleration.</h4>
 
-<h3>Step 6: Verify the AVD configuration is correct, and select Finish.</h3>
+<h4>Step 6: Verify the AVD configuration is correct, and select Finish.</h4>
 
-<h3>Step 7: In Android Virtual Device Manager, click Run in the toolbar. The emulator starts up and displays the default canvas for your selected OS version and device.</h3>
+<h4>Step 7: In Android Virtual Device Manager, click Run in the toolbar. The emulator starts up and displays the default canvas for your selected OS version and device.</h4>
 
 #### Now that we have installed all the dependencies,we are ready to run the project in VS Code.
   
@@ -132,7 +132,11 @@ This automatically registers your per-platform apps with Firebase and adds a ```
  <h4>Note: Run the following command to resolve any dependencies.</h4>
  
  ```flutter pub get```
-
+ 
+ <h4>Note: Run the following command to run your project.</h4>
+ 
+ ``` flutter run --no-sound-null-safety```
+ 
 There are additional steps for installing the Firebase SDK and adding initialization code, but they are not necessary for this tutorial.
 
 That’s it! Have a great day!
