@@ -96,9 +96,9 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
 
 <h3>Step 3: Once the Flutter Emulator is active,you can launch the Android App from the
 "main.dart" file by running the following command in the Terminal.</h3>
- 
- ``` flutter run --no-sound-null-safety```
- 
+
+``` flutter run --no-sound-null-safety```
+
  <img src = "READMEResources/run_3.png"/>
 
  
