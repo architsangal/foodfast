@@ -15,6 +15,8 @@ Flutter also provides official plugins for IntelliJ and Visual Studio Code. In c
 
 For this tutorial we will be assuming that you have flutter SDK and Android Studio installed in your system.
 
+<h1></h1>
+
 <h1>Setting up your Android Emulator(iOS)</h1>
  <div>In the case of iOS simulator, we first need to open it using the dropdown device menu:</div>
   <img src = "READMEResources/img-8.jfif"/>
