@@ -52,6 +52,9 @@ In the case of an Android emulator, we need to create a virtual device. First, l
 
  <div>Leave default settings on the next screens:</div>
   <img src = "READMEResources/img-5.jfif"/>
+  
+   <h4>Note: Make sure that you have playstore installed in the Android Emulator device that you use.</h4>
+
   <img src = "READMEResources/img-6.jfif"/>
   
   Creating an AVD is a one-off action. Once created, it will be available until explicitly removed.
@@ -80,29 +83,9 @@ Now it’s time to run our app! Choose the desired device or emulator and press 
 
 <h4>Step 7: In Android Virtual Device Manager, click Run in the toolbar. The emulator starts up and displays the default canvas for your selected OS version and device.</h4>
 
-#### Now that we have installed all the dependencies,we are ready to run the project in VS Code.
+<h4>Note: Make sure that you have playstore installed in the Android Emulator device that you use.</h4>
   
-
-  
- <h2>Launch The Project</h2>
-
-<h3>Step 1: Open the command palette in VS Code using the shortcut ctrl+shift+P or selecting it in the 'View' Dropdown Menu.</h3>
-  
- <img src = "READMEResources/run_1.png"/>
-
-<h3>Step 2: Launch the Flutter Emulator.</h3>
- 
- <img src = "READMEResources/run_2.png"/>
-
-<h3>Step 3: Once the Flutter Emulator is active,you can launch the Android App from the
-"main.dart" file by running the following command in the Terminal.</h3>
-
-``` flutter run --no-sound-null-safety```
-
- <img src = "READMEResources/run_3.png"/>
-
- 
- <h1> Setting up Firebase Project</h1>
+<h1> Setting up Firebase Project</h1>
 
 First, log in with your Google account to manage your Firebase projects. From within the Firebase dashboard, select the Create new project button and give it a name:
 
@@ -132,14 +115,29 @@ This automatically registers your per-platform apps with Firebase and adds a ```
  
  
  <h4>Note:Make sure you login to your firebase account while you initialise your firebase_cli in your terminal.</h4>
-
- <h4>Note: Make sure that you have playstore installed in the Android Emulator device that you use.</h4>
  
+There are additional steps for installing the Firebase SDK and adding initialization code, but they are not necessary for this tutorial.
+
+  
+ <h2>Launch The Project</h2>
+
+<h3>Step 1: Open the command palette in VS Code using the shortcut ctrl+shift+P or selecting it in the 'View' Dropdown Menu.</h3>
+  
+ <img src = "READMEResources/run_1.png"/>
+
+<h3>Step 2: Launch the Flutter Emulator.</h3>
+ 
+ <img src = "READMEResources/run_2.png"/>
+
+<h3>Step 3: Once the Flutter Emulator is active,you can launch the Android App from the
+"main.dart" file by running the following command in the Terminal.</h3>
+
+``` flutter run --no-sound-null-safety```
+
+ <img src = "READMEResources/run_3.png"/>
+
  
  <h4>Note: Run the following command to resolve any dependencies.</h4>
  
  ```flutter pub get```
- 
-There are additional steps for installing the Firebase SDK and adding initialization code, but they are not necessary for this tutorial.
-
 That’s it! Have a great day!
