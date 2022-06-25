@@ -114,7 +114,7 @@ Now follow all the steps mentioned in this page,
 This automatically registers your per-platform apps with Firebase and adds a ```lib/firebase_options.dart``` configuration file to your Flutter project.
  
  
- <h4>Note:Make sure you login to your firebase account while you initialise your firebase_cli in your terminal.</h4>
+ <h4>Note:Make sure you login to your firebase account while you initialise firebase_cli in your terminal.</h4>
  
 There are additional steps for installing the Firebase SDK and adding initialization code, but they are not necessary for this tutorial.
 
