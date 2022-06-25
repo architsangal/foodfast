@@ -140,4 +140,6 @@ There are additional steps for installing the Firebase SDK and adding initializa
  <h4>Note: Run the following command to resolve any dependencies.</h4>
  
  ```flutter pub get```
+
+
 That’s it! Have a great day!
