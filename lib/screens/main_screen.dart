@@ -11,9 +11,17 @@ class MainScreen extends StatefulWidget {
 }
 
 class _Mainwindowstate extends State<MainScreen> {
+  int index = 0;
+  final screens = [
+    Center(child: Text('A', style: TextStyle(fontSize: 72))),
+    Center(child: Text('B', style: TextStyle(fontSize: 72))),
+    Center(child: Text('C', style: TextStyle(fontSize: 72))),
+    Center(child: Text('D', style: TextStyle(fontSize: 72)))
+  ];
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: SingleChildScrollView(
+        body: screens[index],
+        /*SingleChildScrollView(
           child: Column(
             children: [
               Container(
@@ -40,7 +48,8 @@ class _Mainwindowstate extends State<MainScreen> {
               ),
             ],
           ),
-        ),
+        ), 
+        */
         bottomNavigationBar: NavigationBarTheme(
           data: NavigationBarThemeData(
             indicatorColor: Color(0xFFFF6939),
@@ -48,7 +57,9 @@ class _Mainwindowstate extends State<MainScreen> {
           child: NavigationBar(
             height: MediaQuery.of(context).size.height * 0.08,
             backgroundColor: Color(0xFFFEFFFE),
-            selectedIndex: 1,
+            selectedIndex: index,
+            onDestinationSelected: (index) =>
+                setState(() => {this.index = index}),
             destinations: [
               NavigationDestination(
                   icon: Icon(Icons.home_outlined), label: 'Home'),
