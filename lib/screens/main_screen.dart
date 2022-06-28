@@ -12,6 +12,7 @@ class MainScreen extends StatefulWidget {
 
 class _Mainwindowstate extends State<MainScreen> {
   int index = 0;
+  // Replace the bottom screens with other files.
   final screens = [
     Center(child: Text('A', style: TextStyle(fontSize: 72))),
     Center(child: Text('B', style: TextStyle(fontSize: 72))),
