@@ -46,7 +46,7 @@ class _Mainwindowstate extends State<MainScreen> {
             indicatorColor: Color(0xFFFF6939),
           ),
           child: NavigationBar(
-            // height: 70,
+            height: MediaQuery.of(context).size.height * 0.08,
             backgroundColor: Color(0xFFFEFFFE),
             selectedIndex: 1,
             destinations: [
