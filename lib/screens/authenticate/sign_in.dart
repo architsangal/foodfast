@@ -4,6 +4,7 @@ import 'package:foodfast/screens/register/register.dart';
 import 'package:foodfast/screens/home/home.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:foodfast/screens/main_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -134,7 +135,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   GestureDetector(
                       onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => const Register())),
+                          builder: (BuildContext context) => MainScreen())),
                       child: const Text(
                         'Register.',
                         style: TextStyle(
