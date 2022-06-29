@@ -48,7 +48,7 @@ class _Mainwindowstate extends State<MainScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_rounded),
+            icon: Icon(Icons.shopping_cart_rounded),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
