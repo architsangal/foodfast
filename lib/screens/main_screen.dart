@@ -44,15 +44,24 @@ class _Mainwindowstate extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_rounded),
+            icon: Icon(
+              Icons.home_rounded,
+              color: Colors.black,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_rounded),
+            icon: Icon(
+              Icons.shopping_cart_rounded,
+              color: Colors.black,
+            ),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_rounded),
+            icon: Icon(
+              Icons.account_circle_rounded,
+              color: Colors.black,
+            ),
             label: 'Profile',
           ),
         ],
