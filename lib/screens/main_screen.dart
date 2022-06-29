@@ -11,68 +11,55 @@ class MainScreen extends StatefulWidget {
 }
 
 class _Mainwindowstate extends State<MainScreen> {
-  int index = 0;
-  // Replace the bottom screens with other files.
-  final screens = [
-    Center(child: Text('A', style: TextStyle(fontSize: 72))),
-    Center(child: Text('B', style: TextStyle(fontSize: 72))),
-    Center(child: Text('C', style: TextStyle(fontSize: 72))),
-    Center(child: Text('D', style: TextStyle(fontSize: 72)))
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> screens = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
   ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: screens[index],
-        /*SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                //Upper widget bar
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.25,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFCE4135),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(12.0),
-                  ),
-                ),
-              ),
-              Container(
-                //Upper widget bar
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(12.0),
-                  ),
-                ),
-              ),
-            ],
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: screens[_selectedIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
           ),
-        ), 
-        */
-        bottomNavigationBar: NavigationBarTheme(
-          data: NavigationBarThemeData(
-            indicatorColor: Color(0xFFFF6939),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: 'Cart',
           ),
-          child: NavigationBar(
-            height: MediaQuery.of(context).size.height * 0.08,
-            backgroundColor: Color(0xFFFEFFFE),
-            selectedIndex: index,
-            onDestinationSelected: (index) =>
-                setState(() => {this.index = index}),
-            destinations: [
-              NavigationDestination(
-                  icon: Icon(Icons.home_outlined), label: 'Home'),
-              NavigationDestination(
-                  icon: Icon(Icons.favorite_border_outlined),
-                  label: 'Favourites'),
-              NavigationDestination(
-                  icon: Icon(Icons.shopping_bag_outlined), label: 'Cart'),
-              NavigationDestination(
-                  icon: Icon(Icons.account_circle_outlined), label: 'Profile')
-            ],
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'Profile',
           ),
-        ),
-      );
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Color(0xFFFF6939),
+        onTap: _onItemTapped,
+      ),
+    );
+  }
 }
