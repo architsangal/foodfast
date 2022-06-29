@@ -57,6 +57,7 @@ class _Mainwindowstate extends State<MainScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
+        backgroundColor: Colors.white,
         selectedItemColor: Color(0xFFFF6939),
         onTap: _onItemTapped,
       ),
