@@ -14,7 +14,7 @@ class _Mainwindowstate extends State<MainScreen> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> screens = <Widget>[
+  static const screens = [
     Text(
       'Index 0: Home',
       style: optionStyle,
