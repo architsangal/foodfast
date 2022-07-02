@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/forgot_password/forgot_password.dart';
 import 'package:foodfast/screens/register/register.dart';
-import 'package:foodfast/screens/home/home.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:foodfast/screens/main_screen.dart';
+import 'package:foodfast/screens/home/main_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -134,9 +133,11 @@ class _SignInState extends State<SignIn> {
                     onTap: () {},
                   ),
                   GestureDetector(
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              const MainScreen())),
+                      onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const Register()),
+                          ),
                       child: const Text(
                         'Register.',
                         style: TextStyle(
@@ -158,8 +159,8 @@ class _SignInState extends State<SignIn> {
       // ignore: avoid_print
       print(userCredential.toString());
       // ignore: use_build_context_synchronously
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (BuildContext context) => const Home()));
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => const MainScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         // ignore: avoid_print

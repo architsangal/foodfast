@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use, unnecessary_new, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:foodfast/header_with_seachbox.dart';
-import 'package:foodfast/screens/home/home.dart';
+import 'package:foodfast/screens/Cart/cart_page.dart';
+import 'package:foodfast/screens/home/components/home.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -14,14 +14,12 @@ class MainScreen extends StatefulWidget {
 
 class _Mainwindowstate extends State<MainScreen> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
 
   void onPageChanged(int page) {
     setState(() {
-      this._selectedIndex = page;
+      _selectedIndex = page;
     });
   }
 
@@ -38,7 +36,7 @@ class _Mainwindowstate extends State<MainScreen> {
         // ignore: sort_child_properties_last
         children: <Widget>[
           Home(),
-          // CartScreen(),
+          CartPage(),
           // Profile(),
         ],
         physics: NeverScrollableScrollPhysics(),

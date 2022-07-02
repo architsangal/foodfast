@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: must_be_immutable, sized_box_for_whitespace
 
-import '../../../constants.dart';
+import 'package:flutter/material.dart';
+import 'package:foodfast/screens/constants.dart';
 
 class HeaderWithSearchBox extends StatelessWidget {
   List categories = [
@@ -24,8 +25,9 @@ class HeaderWithSearchBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // It will cover 20% of our total height
-      height: size.height * 0.25,
+      height: size.height * 0.23,
       child: Stack(
+        fit: StackFit.loose,
         children: <Widget>[
           Container(
             padding: const EdgeInsets.only(
@@ -33,7 +35,7 @@ class HeaderWithSearchBox extends StatelessWidget {
               right: kDefaultPadding,
               bottom: 36 + kDefaultPadding,
             ),
-            height: size.height * 0.25 - 27,
+            height: size.height * 0.26 - 27,
             decoration: const BoxDecoration(
               color: Color(0xFFCF4134),
               borderRadius: BorderRadius.only(
@@ -50,7 +52,7 @@ class HeaderWithSearchBox extends StatelessWidget {
               alignment: Alignment.center,
               margin: const EdgeInsets.symmetric(horizontal: 15),
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              height: 50,
+              height: 45,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
@@ -83,45 +85,58 @@ class HeaderWithSearchBox extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: 116,
-              left: 3,
-              child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 2),
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  height: 28,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: categories.length,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            print(categories[index]);
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 0),
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 0),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFCF4134),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 1,
-                              ),
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Center(
-                              child: Text(categories[index],
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                  )),
-                            ),
+            top: 116,
+            left: 3,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 2),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              height: 28,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        // print(categories[index]);
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 0),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 5, vertical: 0),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFCF4134),
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 1,
                           ),
-                        );
-                      }))),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Center(
+                          child: Text(categories[index],
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              )),
+                        ),
+                      ),
+                    );
+                  }),
+            ),
+          ),
+          Positioned(
+            top: 166,
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 24,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+          )
         ],
       ),
     );
