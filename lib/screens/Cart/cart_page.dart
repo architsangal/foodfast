@@ -52,7 +52,7 @@ class _CartPageState extends State<CartPage> {
                             style: const TextStyle(
                               color: Color(0xFF333333),
                               fontSize: 14,
-                              fontWeight: FontWeight.w800,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           const SizedBox(
@@ -118,7 +118,7 @@ class _CartPageState extends State<CartPage> {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               // The Below container widget is the "COUNTER WIDGET"..

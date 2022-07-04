@@ -56,7 +56,7 @@ class _Mainwindowstate extends State<MainScreen> {
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_rounded),
+            icon: Icon(Icons.person_rounded),
             label: 'Profile',
             backgroundColor: Colors.black,
           ),
