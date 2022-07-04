@@ -3,7 +3,7 @@ import 'package:foodfast/screens/forgot_password/forgot_password.dart';
 import 'package:foodfast/screens/register/register.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:foodfast/screens/home/main_screen.dart';
+import 'package:foodfast/screens/userside/home/main_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
