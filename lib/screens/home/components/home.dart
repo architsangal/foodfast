@@ -34,123 +34,137 @@ class _HomeState extends State<Home> {
   Widget personDetailCard(Product p) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: Card(
-        color: Colors.white,
-        elevation: 3,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-          side: BorderSide(
-            color: Colors.grey.withOpacity(0.2),
-            width: 1,
-          ),
-        ),
-        shadowColor: Colors.black,
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: <Widget>[
-              Padding(
-                  padding: const EdgeInsets.all(2),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        p.name,
-                        style: const TextStyle(
-                            color: Color(0xFF333333), fontSize: 16),
-                      ),
-                      Text(
-                        p.category,
-                        style: const TextStyle(
-                            color: Color(0xFF707070), fontSize: 11),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      const Text(
-                        "₹100",
-                        style:
-                            TextStyle(color: Color(0xFFE67F1F), fontSize: 16),
-                      )
-                    ],
-                  )),
-              const Spacer(),
-              // The Below container widget is the "COUNTER WIDGET"..
-              Container(
-                height: 28,
-                width: 85,
-                padding: const EdgeInsets.fromLTRB(3, 3, 3, 3),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                    color: const Color(0xFFF8774A)),
-                child: numberOfItems > 0
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment
-                            .spaceAround, // use whichever suits your need
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
 
-                        children: [
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  numberOfItems--;
-                                });
-                              },
-                              child: const Icon(
-                                Icons.remove,
+          //  color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 0,
+              blurRadius: 2,
+              offset: Offset(0, 2), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Card(
+          color: Colors.white,
+          //  elevation: 3,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+            side: BorderSide(
+              color: Colors.grey.withOpacity(0.1),
+              width: 1,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: <Widget>[
+                Padding(
+                    padding: const EdgeInsets.all(2),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          p.name,
+                          style: const TextStyle(
+                              color: Color(0xFF333333), fontSize: 16),
+                        ),
+                        Text(
+                          p.category,
+                          style: const TextStyle(
+                              color: Color(0xFF707070), fontSize: 11),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const Text(
+                          "₹100",
+                          style:
+                              TextStyle(color: Color(0xFFE67F1F), fontSize: 16),
+                        )
+                      ],
+                    )),
+                const Spacer(),
+                // The Below container widget is the "COUNTER WIDGET"..
+                Container(
+                  height: 28,
+                  width: 85,
+                  padding: const EdgeInsets.fromLTRB(3, 3, 3, 3),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      color: const Color(0xFFF8774A)),
+                  child: numberOfItems > 0
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment
+                              .spaceAround, // use whichever suits your need
+
+                          children: [
+                            InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    numberOfItems--;
+                                  });
+                                },
+                                child: const Icon(
+                                  Icons.remove,
+                                  color: Colors.white,
+                                  size: 17,
+                                )),
+                            //  SizedBox(width: 17),
+                            Text(
+                              '$numberOfItems',
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 17),
+                            ),
+                            //  SizedBox(width: 17),
+                            InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    numberOfItems++;
+                                  });
+                                },
+                                child: const Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                  size: 17,
+                                )),
+                          ],
+                        )
+                      : TextButton(
+                          onPressed: () {
+                            setState(() {
+                              numberOfItems++;
+                            });
+                          },
+                          child: const Text("ADD",
+                              style: TextStyle(
+                                fontSize: 16,
                                 color: Colors.white,
-                                size: 17,
+                                fontWeight: FontWeight.bold,
                               )),
-                          //  SizedBox(width: 17),
-                          Text(
-                            '$numberOfItems',
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 17),
-                          ),
-                          //  SizedBox(width: 17),
-                          InkWell(
-                              onTap: () {
-                                setState(() {
-                                  numberOfItems++;
-                                });
-                              },
-                              child: const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                                size: 17,
-                              )),
-                        ],
-                      )
-                    : TextButton(
-                        onPressed: () {
-                          setState(() {
-                            numberOfItems++;
-                          });
-                        },
-                        child: const Text("ADD",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                          style: ButtonStyle(
+                            shadowColor:
+                                MaterialStateProperty.all<Color>(Colors.black),
+                            padding: MaterialStateProperty.all(
+                                const EdgeInsets.symmetric(
+                              vertical: 2,
                             )),
-                        style: ButtonStyle(
-                          shadowColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(
-                            vertical: 2,
-                          )),
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              const Color(0xFFF9764A)),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                const Color(0xFFF9764A)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
