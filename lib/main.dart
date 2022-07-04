@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: App(),
     );
   }
 }
 
-class Home extends StatelessWidget {
+class App extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-  Home({Key? key}) : super(key: key);
+  App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
