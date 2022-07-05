@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use, unnecessary_new, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/Cart/cart_page.dart';
-import 'package:foodfast/screens/home/components/home.dart';
+import 'package:foodfast/screens/userside/Cart/cart_page.dart';
+import 'package:foodfast/screens/userside/home/components/home.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
