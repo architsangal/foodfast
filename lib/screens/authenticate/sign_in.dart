@@ -4,7 +4,7 @@ import 'package:foodfast/screens/register/register.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodfast/screens/userside/home/main_screen.dart';
-
+import 'package:foodfast/screens/managerside/home/main_screen.dart';
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
 
@@ -106,7 +106,7 @@ class _SignInState extends State<SignIn> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             primary: Colors.blue,
@@ -158,9 +158,15 @@ class _SignInState extends State<SignIn> {
               email: _controllerEMail.text, password: _controllerPassword.text);
       // ignore: avoid_print
       print(userCredential.toString());
-      // ignore: use_build_context_synchronously
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) => const MainScreen()));
+      if (_controllerEMail.text == "manager@iiitb.org"){
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => const mMainScreen()));
+      }
+      else{
+        // ignore: use_build_context_synchronously
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => const MainScreen()));
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         // ignore: avoid_print
@@ -171,4 +177,5 @@ class _SignInState extends State<SignIn> {
       }
     }
   }
+  
 }
