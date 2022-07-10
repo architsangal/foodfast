@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:foodfast/screens/userside/models/product.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -11,7 +12,7 @@ class ProductsProvider with ChangeNotifier {
     List<Product> stuffList = [];
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('Products').get();
-    querySnapshot.docs.forEach((element) {
+    for (var element in querySnapshot.docs) {
       Product p = Product(
         id: element.data()['id'],
         title: element.data()['title'],
@@ -21,7 +22,7 @@ class ProductsProvider with ChangeNotifier {
       );
       stuffList.add(p);
       _products = stuffList;
-    });
+    }
 
     notifyListeners();
   }

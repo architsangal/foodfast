@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/constants.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
 import '../../providers/products_provider.dart';

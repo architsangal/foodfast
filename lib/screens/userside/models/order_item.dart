@@ -11,5 +11,6 @@ class OrderItem {
     required this.amount,
     required this.products,
     required this.dateTime,
+    required this.type,
   });
 }

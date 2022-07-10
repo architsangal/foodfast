@@ -22,6 +22,7 @@ class OrdersProvider with ChangeNotifier {
           id: DateTime.now().toString(),
           amount: total,
           products: cartItems,
+          type: "Active",
         ));
     notifyListeners();
   }
