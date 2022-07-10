@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/forgot_password/forgot_password.dart';
-import 'package:foodfast/screens/register/register.dart';
+import 'package:foodfast/screens/authenticate/forgot_password.dart';
+import 'package:foodfast/screens/authenticate/register.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodfast/screens/userside/home/main_screen.dart';
