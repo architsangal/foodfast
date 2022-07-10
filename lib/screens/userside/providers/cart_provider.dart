@@ -1,3 +1,5 @@
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 import '../models/cart_item.dart';
@@ -7,6 +9,26 @@ class CartProvider with ChangeNotifier {
   // Map<key, value> => key will be the id of the CartItem.
   // Global list for a specific user that keeps track of all the cart items.
   Map<String, CartItem> _cartItems = {};
+// The map that stores the entire cart as a map of objects that are accessed by the product id of a specific item.
+  Future<void> getcart() async {
+    // This function will intitialise the local cart object from the one that is pulled from the database at the time of login.
+    DocumentSnapshot snapshot = await FirebaseFirestore.instance
+        .collection('Userdata')
+        .doc('iU5AaoINM2UBnOHQ0Sep')
+        .get();
+
+    if (snapshot.exists) {
+      Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+      // Now we have the cart object and we should load it into the local map available.
+      var categoriesData = data['cart'] as Map<String, dynamic>;
+// Iterating through a map and parsing every
+      categoriesData.forEach((key, value) {
+        CartItem cata = CartItem.fromJson(value);
+        _cartItems.putIfAbsent(key, () => cata);
+      });
+    }
+    notifyListeners();
+  }
 
   // getter to get cart items
   Map<String, CartItem> get cartItems {
@@ -46,7 +68,7 @@ class CartProvider with ChangeNotifier {
     return cartItem.quantity;
   }
 
-  void increaseNumberOfProductsInCartItem(String productId) {
+  Future<void> increaseNumberOfProductsInCartItem(String productId) async {
     _cartItems.update(
         productId,
         (existingCartItem) => CartItem(
@@ -55,10 +77,25 @@ class CartProvider with ChangeNotifier {
               price: existingCartItem.price,
               quantity: existingCartItem.quantity + 1,
             ));
+// Update the cart entry in the local map and the firebase database too.
+
+    await FirebaseFirestore.instance
+        .collection('Userdata')
+        .doc('iU5AaoINM2UBnOHQ0Sep')
+        .update({
+      'cart': {
+        productId: {
+          productId,
+          _cartItems[productId]!.title,
+          _cartItems[productId]!.quantity,
+          _cartItems[productId]!.price
+        }.toList(),
+      }
+    });
     notifyListeners();
   }
 
-  void decreaseNumberOfProductsInCartItem(String productId) {
+  Future<void> decreaseNumberOfProductsInCartItem(String productId) async {
     _cartItems.update(
         productId,
         (existingCartItem) => CartItem(
@@ -69,10 +106,25 @@ class CartProvider with ChangeNotifier {
                   ? 0
                   : existingCartItem.quantity - 1,
             ));
+// Update the cart entry in the local map and the firebase database too.
+    await FirebaseFirestore.instance
+        .collection('Userdata')
+        .doc('iU5AaoINM2UBnOHQ0Sep')
+        .update({
+      'cart': {
+        productId: {
+          productId,
+          _cartItems[productId]!.title,
+          _cartItems[productId]!.quantity,
+          _cartItems[productId]!.price
+        }.toList(),
+      }
+    });
     notifyListeners();
   }
 
-  void addItemToCart(String productId, String title, double price) {
+  Future<void> addItemToCart(
+      String productId, String title, double price) async {
     // Check if cart contain product
     if (_cartItems.containsKey(productId)) {
       // Increase quantity
@@ -84,6 +136,15 @@ class CartProvider with ChangeNotifier {
                 price: existingCartItem.price,
                 quantity: existingCartItem.quantity + 1,
               ));
+      await FirebaseFirestore.instance
+          .collection('Userdata')
+          .doc('iU5AaoINM2UBnOHQ0Sep')
+          .update({
+        'cart': {
+          productId: {productId, title, _cartItems[productId]!.quantity, price}
+              .toList(),
+        }
+      });
     } else {
       // Add product to cart
       _cartItems.putIfAbsent(
@@ -94,7 +155,16 @@ class CartProvider with ChangeNotifier {
                 quantity: 1,
                 price: price,
               ));
+      await FirebaseFirestore.instance
+          .collection('Userdata')
+          .doc('iU5AaoINM2UBnOHQ0Sep')
+          .set({
+        'cart': {
+          productId: {productId, title, 1, price}.toList(),
+        }
+      }, SetOptions(merge: true));
     }
+
     notifyListeners();
   }
 
