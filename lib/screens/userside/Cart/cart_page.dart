@@ -2,6 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foodfast/screens/userside/Cart/widgets/cart_item_widget.dart';
+import 'package:foodfast/screens/userside/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -131,6 +134,8 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartProvider>(context);
+
     return Scaffold(
         body: Column(children: [
       Stack(
@@ -175,38 +180,44 @@ class _CartPageState extends State<CartPage> {
                   size: 23,
                 ),
                 SizedBox(width: 3),
-                Text("6"),
+                Text(cart.itemsCount.toString()),
               ],
             ),
           ),
         ],
       ),
       Expanded(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Card(
-            margin: EdgeInsets.symmetric(
-              horizontal: 12,
+        //  scrollDirection: Axis.vertical,
+        child: Card(
+          margin: EdgeInsets.symmetric(
+            horizontal: 12,
+          ),
+          color: Colors.white,
+          elevation: 3,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+            side: BorderSide(
+              color: Colors.grey.withOpacity(0.2),
+              width: 1,
             ),
-            color: Colors.white,
-            elevation: 3,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-              side: BorderSide(
-                color: Colors.grey.withOpacity(0.2),
-                width: 1,
+          ),
+          shadowColor: Colors.black,
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: ListView.separated(
+              scrollDirection: Axis.vertical,
+              itemCount: cart.cartItems.length,
+              itemBuilder: (ctx, i) => CartItemWidget(
+                productId: cart.cartItems.values.toList()[i].id,
+                price: cart.cartItems.values.toList()[i].price,
+                quantity: cart.cartItems.values.toList()[i].quantity,
+                title: cart.cartItems.values.toList()[i].title,
               ),
+              separatorBuilder: (BuildContext context, int index) {
+                return Divider();
+              },
             ),
-            shadowColor: Colors.black,
-            child: Column(
-                children: items.map((p) {
-              return Column(children: [
-                personDetailCard(p),
-                Divider(
-                  thickness: 2,
-                )
-              ]);
-            }).toList()),
           ),
         ),
       ),
@@ -247,7 +258,7 @@ class _CartPageState extends State<CartPage> {
                   ),
                   Spacer(),
                   Text(
-                    "₹850",
+                    cart.totalPriceAmount.toStringAsFixed(2),
                     style: const TextStyle(
                         fontSize: 18,
                         color: Colors.black,
