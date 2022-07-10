@@ -20,9 +20,9 @@ class CartProvider with ChangeNotifier {
     if (snapshot.exists) {
       Map<String, dynamic> data = snapshot.data();
       // Now we have the cart object and we should load it into the local map available.
-      var categoriesData = data['cart'] as Map<String, dynamic>;
+      var cartData = data['cart'] as Map<String, dynamic>;
 // Iterating through a map and parsing every
-      categoriesData.forEach((key, value) {
+      cartData.forEach((key, value) {
         CartItem cata = CartItem.fromJson(value);
         _cartItems.putIfAbsent(key, () => cata);
       });
