@@ -1,10 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, import_of_legacy_library_into_null_safe
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/userside/Cart/widgets/cart_item_widget.dart';
-import 'package:foodfast/screens/userside/providers/cart_provider.dart';
-import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -17,9 +13,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    List categories = ['Active', 'Rejected', 'Completed'];
-    List colors = ['green', 'red', 'yellow'];
-
     return Scaffold(
         body: Column(
       mainAxisAlignment: MainAxisAlignment.start,

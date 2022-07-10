@@ -6,9 +6,10 @@ import 'package:provider/provider.dart';
 import '../../models/product.dart';
 
 class ProductGridItem extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final index;
 
-  ProductGridItem(this.index);
+  const ProductGridItem(this.index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

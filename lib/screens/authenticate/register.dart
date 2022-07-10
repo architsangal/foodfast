@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/register/verification_otp.dart';
+import 'package:foodfast/screens/authenticate/verification_otp.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:toast/toast.dart';
 // ignore: import_of_legacy_library_into_null_safe

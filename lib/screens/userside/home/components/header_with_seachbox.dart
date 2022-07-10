@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/constants.dart';
+import 'package:foodfast/constants.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
