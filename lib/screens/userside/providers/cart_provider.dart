@@ -91,7 +91,7 @@ class CartProvider with ChangeNotifier {
           _cartItems[productId]!.price
         }.toList(),
       }
-    });
+    }, SetOptions(merge: true));
     notifyListeners();
   }
 
@@ -110,7 +110,7 @@ class CartProvider with ChangeNotifier {
     await FirebaseFirestore.instance
         .collection('Userdata')
         .doc('iU5AaoINM2UBnOHQ0Sep')
-        .update({
+        .set({
       'cart': {
         productId: {
           productId,
@@ -119,7 +119,7 @@ class CartProvider with ChangeNotifier {
           _cartItems[productId]!.price
         }.toList(),
       }
-    });
+    }, SetOptions(merge: true));
     notifyListeners();
   }
 
@@ -136,15 +136,20 @@ class CartProvider with ChangeNotifier {
                 price: existingCartItem.price,
                 quantity: existingCartItem.quantity + 1,
               ));
+
       await FirebaseFirestore.instance
           .collection('Userdata')
           .doc('iU5AaoINM2UBnOHQ0Sep')
           .set({
         'cart': {
-          productId:
-              {productId, title, FieldValue.increment(1), price}.toList(),
+          productId: {
+            productId,
+            _cartItems[productId]!.title,
+            _cartItems[productId]!.quantity,
+            _cartItems[productId]!.price
+          }.toList(),
         }
-      });
+      }, SetOptions(merge: true));
     } else {
       // Add product to cart
       _cartItems.putIfAbsent(
