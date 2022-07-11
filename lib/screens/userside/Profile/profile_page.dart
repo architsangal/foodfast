@@ -195,7 +195,62 @@ class _ProfilePageState extends State<ProfilePage> {
             ],
           ),
         ),
+        Container(
+          alignment: Alignment.topLeft,
+          margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+          child: Card(
+            color: Colors.white,
+            //  elevation: 3,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: BorderSide(
+                color: Colors.grey.withOpacity(0.1),
+                width: 1,
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Padding(
+                padding: const EdgeInsets.all(2),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.center,
+                      height: 34,
+                      width: 98,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF35BF7D),
+                      ),
+                      child: Text(
+                        "Active",
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontFamily: 'Ubuntu',
+                        ),
+                      ),
+                    ),
+                    // -------------------------------- Name -------------------------------- //
+                    Text(
+                      "Order one",
+                      style: const TextStyle(
+                          color: Color(0xFF333333), fontSize: 16),
+                    ),
+                    // -------------------------------- Email Id-------------------------------- //
+                    SizedBox(height: 2),
+                    // -------------------------------- Monthly Expenditure -------------------------------- //
+                    Divider(
+                      thickness: 1,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
     ));
   }
 }
+             /*   */

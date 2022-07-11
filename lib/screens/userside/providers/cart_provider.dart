@@ -82,7 +82,7 @@ class CartProvider with ChangeNotifier {
     await FirebaseFirestore.instance
         .collection('Userdata')
         .doc('iU5AaoINM2UBnOHQ0Sep')
-        .update({
+        .set({
       'cart': {
         productId: {
           productId,
@@ -139,10 +139,10 @@ class CartProvider with ChangeNotifier {
       await FirebaseFirestore.instance
           .collection('Userdata')
           .doc('iU5AaoINM2UBnOHQ0Sep')
-          .update({
+          .set({
         'cart': {
-          productId: {productId, title, _cartItems[productId]!.quantity, price}
-              .toList(),
+          productId:
+              {productId, title, FieldValue.increment(1), price}.toList(),
         }
       });
     } else {
