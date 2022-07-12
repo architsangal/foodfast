@@ -17,8 +17,9 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
+    Provider.of<CartProvider>(context).getcart();
+
     final cart = Provider.of<CartProvider>(context);
-    // Provider.of<CartProvider>(context).getcart();
     return Scaffold(
         body: Column(children: [
       Stack(

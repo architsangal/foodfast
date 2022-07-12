@@ -4,6 +4,9 @@ import 'package:foodfast/screens/authenticate/register.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodfast/screens/userside/home/main_screen.dart';
+import 'package:provider/provider.dart';
+
+import '../userside/providers/cart_provider.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -158,6 +161,7 @@ class _SignInState extends State<SignIn> {
               email: _controllerEMail.text, password: _controllerPassword.text);
       // ignore: avoid_print
       print(userCredential.toString());
+      // ignore: use_build_context_synchronously
       // ignore: use_build_context_synchronously
       Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => const MainScreen()));
