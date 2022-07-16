@@ -1,18 +1,14 @@
 // ignore_for_file: must_be_immutable, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/constants.dart';
+import 'package:foodfast/constants.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:provider/provider.dart';
+
+import '../../providers/products_provider.dart';
 
 class HeaderWithSearchBox extends StatelessWidget {
-  List categories = [
-    "Beverages",
-    "Munchies",
-    "Chinese",
-    "Juices",
-    "Cakes",
-    "Noodles",
-    "Burgers"
-  ];
+  List categories = [];
 
   HeaderWithSearchBox({
     Key? key,
@@ -23,6 +19,8 @@ class HeaderWithSearchBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<ProductsProvider>(context).getcategories();
+    categories = Provider.of<ProductsProvider>(context).categories;
     return Container(
       // It will cover 20% of our total height
       height: size.height * 0.23,
