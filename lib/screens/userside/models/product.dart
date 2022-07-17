@@ -6,6 +6,7 @@ class Product with ChangeNotifier {
   final String description;
   final double price;
   final String category;
+  final bool availability;
 
   Product({
     required this.id,
@@ -13,5 +14,6 @@ class Product with ChangeNotifier {
     required this.description,
     required this.price,
     required this.category,
+    required this.availability,
   });
 }

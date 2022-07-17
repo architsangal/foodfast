@@ -19,6 +19,8 @@ class ProductsProvider with ChangeNotifier {
         description: element.data()['description'],
         price: element.data()['price'],
         category: element.data()['category'],
+        availability: true,
+        // availability: element.data()['availability']
       );
       stuffList.add(p);
       _products = stuffList;
