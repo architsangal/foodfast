@@ -4,6 +4,8 @@ import 'package:foodfast/screens/authenticate/register.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodfast/screens/userside/home/main_screen.dart';
+import 'package:foodfast/screens/managerside/home_page/home.dart' as managerside;
+
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -160,8 +162,15 @@ class _SignInState extends State<SignIn> {
       print(userCredential.toString());
       // ignore: use_build_context_synchronously
       // ignore: use_build_context_synchronously
-      Navigator.of(context).push(MaterialPageRoute(
+      if(_controllerEMail.text  == "manager@iiitb.org"){
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => const managerside.MainScreen()));
+      }
+      else{
+        Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => const MainScreen()));
+      }
+      
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         // ignore: avoid_print
