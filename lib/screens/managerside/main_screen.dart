@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/managerside/home_page/components/home.dart';
+import 'package:foodfast/screens/managerside/Profile/profile_page.dart';
+import 'package:foodfast/screens/managerside/Current_orders/current_orders.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -35,6 +37,8 @@ class _Mainwindowstate extends State<MainScreen> {
         // ignore: sort_child_properties_last
         children: <Widget>[
           Home(),
+          CurrentOrdersPage(),
+          ProfilePage(),
         ],
         physics: NeverScrollableScrollPhysics(),
       ),
@@ -45,7 +49,11 @@ class _Mainwindowstate extends State<MainScreen> {
             label: 'Home',
             backgroundColor: Colors.black,
           ),
-          
+          BottomNavigationBarItem(
+            icon: Icon(Icons.receipt),
+            label: 'Current Orders',
+            backgroundColor: Colors.black,
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_rounded),
             label: 'Profile',

@@ -4,7 +4,7 @@ import 'package:foodfast/screens/authenticate/register.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodfast/screens/userside/home/main_screen.dart';
-import 'package:foodfast/screens/managerside/home_page/home.dart' as managerside;
+import 'package:foodfast/screens/managerside/main_screen.dart' as managerside;
 
 
 class SignIn extends StatefulWidget {

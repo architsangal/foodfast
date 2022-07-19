@@ -4,9 +4,14 @@ import 'package:foodfast/screens/userside/providers/products_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
-class ProductsGrid extends StatelessWidget {
+class ProductsGrid extends StatefulWidget {
   const ProductsGrid({Key? key}) : super(key: key);
 
+  @override
+  State<ProductsGrid> createState() => _ProductsGridState();
+}
+
+class _ProductsGridState extends State<ProductsGrid> {
   @override
   Widget build(BuildContext context) {
     // listen to ProductsProvider to get all products list
