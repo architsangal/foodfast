@@ -3,7 +3,7 @@ import 'package:foodfast/screens/userside/providers/cart_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
-import '../../../userside/models/product.dart';
+import '../../userside/models/product.dart';
 
 class ProductGridItem extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables

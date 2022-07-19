@@ -131,7 +131,6 @@ class _ProfilePageState extends State<ProfilePage> {
           width: MediaQuery.of(context).size.width,
           child: Row(
             children: [
-              
               InkWell(
                 onTap: () {
                   // print(categories[index]);
@@ -208,198 +207,195 @@ class _ProfilePageState extends State<ProfilePage> {
                 width: 1,
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(2),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  // Green container at the middle of the top.
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 34,
-                      width: 98,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF35BF7D),
-                        borderRadius:
-                            BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.25),
-                            blurRadius: 4.0,
-                            spreadRadius: 0.0,
-                            offset: Offset(0, 2),
-                          ), //BoxShadow
-                          //BoxShadow
-                        ],
-                      ),
-                      child: Text(
-                        "Active",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          //fontFamily: 'Ubuntu',
-                        ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                // Green container at the middle of the top.
+                TextButton(
+                  onPressed: () {},
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 34,
+                    width: 98,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF35BF7D),
+                      borderRadius:
+                          BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.25),
+                          blurRadius: 4.0,
+                          spreadRadius: 0.0,
+                          offset: Offset(0, 2),
+                        ), //BoxShadow
+                        //BoxShadow
+                      ],
+                    ),
+                    child: Text(
+                      "Active",
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        //fontFamily: 'Ubuntu',
                       ),
                     ),
                   ),
+                ),
 
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Fried Rice",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Fried Rice",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "₹100",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "₹100",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "x3",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "x3",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Fried Rice",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Fried Rice",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "₹100",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "₹100",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "x3",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "x3",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Fried Rice",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Fried Rice",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "₹100",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "₹100",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "x3",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "x3",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Fried Rice",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Fried Rice",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "₹100",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "₹100",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "x3",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "x3",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Fried Rice",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Fried Rice",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "₹100",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "₹100",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "x3",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "x3",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Divider(
-                    thickness: 1,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(50, 0, 70, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Total",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                ),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(50, 0, 70, 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Total",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          "₹1500",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      ),
+                      Text(
+                        "₹1500",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
