@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use, unnecessary_new, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/managerside/home_page/components/home.dart';
+import 'package:foodfast/screens/managerside/home_page/home.dart';
 import 'package:foodfast/screens/managerside/Profile/profile_page.dart';
 import 'package:foodfast/screens/managerside/Current_orders/current_orders.dart';
 
