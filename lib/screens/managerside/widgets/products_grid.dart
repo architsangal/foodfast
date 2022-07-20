@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/managerside/widgets/product_grid_item.dart';
+import 'package:foodfast/screens/userside/providers/order_provider.dart';
 import 'package:foodfast/screens/userside/providers/products_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
@@ -16,8 +17,8 @@ class _ProductsGridState extends State<ProductsGrid> {
   Widget build(BuildContext context) {
     // listen to ProductsProvider to get all products list
     Provider.of<ProductsProvider>(context).getproducts();
-
     final products = Provider.of<ProductsProvider>(context).products;
+
     return SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
