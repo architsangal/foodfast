@@ -1,61 +1,40 @@
-// ignore_for_file: deprecated_member_use, unnecessary_new, prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: sort_child_properties_last, unused_import, import_of_legacy_library_into_null_safe
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/managerside/home_page/components/home.dart';
+import 'package:foodfast/screens/userside/providers/products_provider.dart';
+import 'package:provider/provider.dart';
+import '../widgets/products_grid.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class Product {
+  String name;
+  String category;
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _Mainwindowstate createState() => _Mainwindowstate();
+  Product({required this.name, required this.category});
 }
 
-class _Mainwindowstate extends State<MainScreen> {
-  int _selectedIndex = 0;
-
-  final PageController _pageController = PageController();
-
-  void onPageChanged(int page) {
-    setState(() {
-      _selectedIndex = page;
-    });
-  }
-
-  void _onItemTapped(int index) {
-    _pageController.jumpToPage(index);
-  }
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
+  State<StatefulWidget> createState() {
+    return _HomeState();
+  }
+}
+
+class _HomeState extends State<Home> {
+  @override
   Widget build(BuildContext context) {
+    // It will provie us total height  and width of our screen
+    // it enable scrolling on small device
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: onPageChanged,
-        // ignore: sort_child_properties_last
-        children: <Widget>[
-          Home(),
-        ],
-        physics: NeverScrollableScrollPhysics(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_rounded),
-            label: 'Home',
-            backgroundColor: Colors.black,
-          ),
-          
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_rounded),
-            label: 'Profile',
-            backgroundColor: Colors.black,
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        backgroundColor: Colors.white,
-        selectedItemColor: Color(0xFFFF6939),
-        onTap: _onItemTapped,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ProductsGrid(),
+          ],
+        ),
       ),
     );
   }

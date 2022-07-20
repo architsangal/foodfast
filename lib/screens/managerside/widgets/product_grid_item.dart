@@ -3,17 +3,23 @@ import 'package:foodfast/screens/userside/providers/cart_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
-import '../../../userside/models/product.dart';
+import '../../userside/models/product.dart';
 
-class ProductGridItem extends StatelessWidget {
+class ProductGridItem extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
   final index;
 
   const ProductGridItem(this.index, {Key? key}) : super(key: key);
 
   @override
+  State<ProductGridItem> createState() => _ProductGridItemState();
+}
+
+class _ProductGridItemState extends State<ProductGridItem> {
+  @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
+    List<bool> isSelected = [true, false, false];
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -54,15 +60,13 @@ class ProductGridItem extends StatelessWidget {
 
                         Text(
                           product.title,
-                          style: const TextStyle(
-                              color: Color(0xFF333333), fontSize: 16),
+                          style: const TextStyle(color: Color(0xFF333333), fontSize: 16),
                         ),
                         // -------------------------------- Category in product card -------------------------------- //
 
                         Text(
                           product.category,
-                          style: const TextStyle(
-                              color: Color(0xFF707070), fontSize: 11),
+                          style: const TextStyle(color: Color(0xFF707070), fontSize: 11),
                         ),
                         const SizedBox(
                           height: 5,
@@ -71,14 +75,29 @@ class ProductGridItem extends StatelessWidget {
 
                         Text(
                           product.price.toString(),
-                          style: const TextStyle(
-                              color: Color(0xFFE67F1F), fontSize: 16),
+                          style: const TextStyle(color: Color(0xFFE67F1F), fontSize: 16),
                         )
                       ],
                     )),
                 const Spacer(),
                 // -------------------------------- FOOTER(COUNTER WIDGET PART OF THE PRODUCT CARD) -------------------------------- //
-                
+                ToggleButtons(
+                  children: <Widget>[
+                    Icon(Icons.done_rounded),
+                    Icon(Icons.priority_high),
+                    Icon(Icons.close),
+                  ],
+                  onPressed: (int index) {
+                    setState(() {
+                      isSelected[index] = !isSelected[index];
+                    });
+                  },
+                  color: Colors.orange,
+                  selectedColor: Colors.white,
+                  fillColor: Colors.orange,
+                  renderBorder: false,
+                  isSelected: isSelected,
+                ),
               ],
             ),
           ),
