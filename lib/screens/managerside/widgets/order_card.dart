@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/userside/models/cart_item.dart';
+import 'package:flutter/foundation.dart';
 
 class OrderCard extends StatelessWidget {
   final String userid;
-  final Map<String,CartItem> cart;
+  final Map<String, CartItem> cart;
   final DateTime datetime;
   final String type;
 
@@ -73,7 +75,12 @@ class OrderCard extends StatelessWidget {
                         ],
                       ),
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          FirebaseFirestore.instance
+                              .collection("Orders")
+                              .doc("l54bKCfJj8LpZ9bIsBCe")
+                              .update({"type": "completed"});
+                        },
                         child: const Text(
                           "Ready",
                           style: TextStyle(color: Colors.white),
@@ -99,7 +106,12 @@ class OrderCard extends StatelessWidget {
                         ],
                       ),
                       child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            FirebaseFirestore.instance
+                                .collection("Orders")
+                                .doc("l54bKCfJj8LpZ9bIsBCe")
+                                .update({"type": "rejected"});
+                          },
                           child: const Text(
                             "Reject",
                             style: TextStyle(color: Colors.white),
@@ -108,8 +120,6 @@ class OrderCard extends StatelessWidget {
                   ],
                 ),
               ),
-              
-              
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: Row(
@@ -136,30 +146,7 @@ class OrderCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    "Fried Rice",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "₹100",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "x3",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              
+              Text(type.toString()),
               const Divider(
                 thickness: 1,
               ),
