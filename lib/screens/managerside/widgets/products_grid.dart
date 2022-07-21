@@ -17,6 +17,7 @@ class _ProductsGridState extends State<ProductsGrid> {
   Widget build(BuildContext context) {
     // listen to ProductsProvider to get all products list
     Provider.of<ProductsProvider>(context).getproducts();
+    Provider.of<OrderProvider>(context).getorder();
     final products = Provider.of<ProductsProvider>(context).products;
 
     return SizedBox(
