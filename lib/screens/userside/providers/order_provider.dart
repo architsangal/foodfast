@@ -15,9 +15,8 @@ class OrderProvider with ChangeNotifier {
 
     if(snapshot.exists) {
       Map<String, dynamic> data = snapshot.data();
-//       print(data['datetime']);
-      // order.datetime = DateTime.parse(data['datetime']);
-      
+      Timestamp t = data['datetime'];
+      order.datetime = DateTime.fromMillisecondsSinceEpoch(t.millisecondsSinceEpoch);
       order.type = data['type'];
       order.userid = data['id'];
 
