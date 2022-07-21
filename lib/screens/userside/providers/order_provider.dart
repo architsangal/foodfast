@@ -4,7 +4,7 @@ import '../models/cart_item.dart';
 import '../models/order_item.dart';
 
 class OrderProvider with ChangeNotifier {
-  late OrderItem order;
+  late OrderItem order = OrderItem(userid: 'abc',cart: {},datetime: DateTime.utc(1969, 7, 20, 20, 18, 04),type: 'active');
 
   // get all orders
   Future<void> getorder() async {
@@ -16,17 +16,17 @@ class OrderProvider with ChangeNotifier {
     if(snapshot.exists) {
       Map<String, dynamic> data = snapshot.data();
 //       print(data['datetime']);
-//       order.datetime = data['datetime'];
+      // order.datetime = DateTime.parse(data['datetime']);
       
-//       order.type = data['type'];
-//       order.userid = data['id'];
-//       var cartData = data['cart'] as Map<String, dynamic>;
-// // Iterating through a map and parsing every
-//       cartData.forEach((key, value) {
-//         CartItem cata = CartItem.fromJson(value);
-//         order.cart.putIfAbsent(key, () => cata);
-//       });
+      order.type = data['type'];
+      order.userid = data['id'];
 
+      var cartData = data['cart'] as Map<String, dynamic>;
+// Iterating through a map and parsing every
+      cartData.forEach((key, value) {
+        CartItem cata = CartItem.fromJson(value);
+        order.cart.putIfAbsent(key, () => cata);
+      });
     }
     else{
       print('no snapshot');
