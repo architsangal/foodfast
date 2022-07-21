@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/managerside/widgets/order_card.dart';
+import 'package:foodfast/screens/userside/providers/order_provider.dart';
+import 'package:provider/provider.dart';
 
 class CurrentOrdersPage extends StatefulWidget {
   const CurrentOrdersPage({Key? key}) : super(key: key);
@@ -14,11 +16,14 @@ class CurrentOrdersPage extends StatefulWidget {
 class _CurrentOrdersState extends State<CurrentOrdersPage> {
   @override
   Widget build(BuildContext context) {
+    Provider.of<OrderProvider>(context).getorder();
+    final order = Provider.of<OrderProvider>(context);
+
     return Scaffold(
         body: SingleChildScrollView(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
           Container(
             alignment: Alignment.topLeft,
             margin: EdgeInsets.fromLTRB(15, 35, 10, 5),
@@ -45,11 +50,20 @@ class _CurrentOrdersState extends State<CurrentOrdersPage> {
               ),
             ),
           ),
-          order_card(),
-          order_card(),
-          order_card(),
-              ],
-            ),
-        ));
+          Text(
+            order.order.type.toString()
+          ),
+          Text(
+            order.order.userid.toString()
+          ),
+          Text(
+            order.order.cart.toString()
+          ),
+          Text(
+            order.order.datetime.toString()
+          )
+        ],
+      ),
+    ));
   }
 } /*   */
