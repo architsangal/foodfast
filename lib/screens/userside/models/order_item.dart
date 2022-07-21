@@ -1,16 +1,14 @@
 import 'package:foodfast/screens/userside/models/cart_item.dart';
 
 class OrderItem {
-  final String id;
-  final double amount;
-  final List<CartItem> products;
-  final DateTime dateTime;
-  final String type;
+  late String userid;
+  late Map<String,CartItem> cart;
+  late DateTime datetime;
+  late String type;
   OrderItem({
-    required this.id,
-    required this.amount,
-    required this.products,
-    required this.dateTime,
+    required this.userid,
+    required this.cart,
+    required this.datetime,
     required this.type,
   });
 }

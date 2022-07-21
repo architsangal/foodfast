@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_core/firebase_core.dart';
 import 'package:foodfast/screens/authenticate/sign_in.dart';
-import 'package:foodfast/screens/userside/providers/orders_provider.dart';
+import 'package:foodfast/screens/userside/providers/order_provider.dart';
 import 'package:foodfast/screens/userside/providers/products_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: ProductsProvider()),
         ChangeNotifierProvider.value(value: CartProvider()),
-        ChangeNotifierProvider.value(value: OrdersProvider()),
+        ChangeNotifierProvider.value(value: OrderProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
