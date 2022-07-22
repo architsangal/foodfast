@@ -54,7 +54,8 @@ class _CurrentOrdersState extends State<CurrentOrdersPage> {
               userid: order.order.userid,
               cart: order.order.cart,
               datetime: order.order.datetime,
-              type: order.order.type):
+              type: order.order.type,
+              total: order.totalPriceAmount,):
               (order.order.type == "rejected")? 
               Text("order rejected"):
               Text("order completed")
