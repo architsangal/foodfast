@@ -2,12 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/userside/models/cart_item.dart';
 import 'package:flutter/foundation.dart';
+import 'dart:convert';
 
 class OrderCard extends StatelessWidget {
   final String userid;
   final Map<String, CartItem> cart;
   final DateTime datetime;
   final String type;
+  final double total;
 
   const OrderCard({
     Key? key,
@@ -15,6 +17,7 @@ class OrderCard extends StatelessWidget {
     required this.cart,
     required this.datetime,
     required this.type,
+    required this.total,
   }) : super(key: key);
 
   @override
@@ -120,31 +123,41 @@ class OrderCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      "Fried Rice",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "₹100",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "x3",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                height: 100,
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: cart.length,
+                    itemBuilder: (context, index) {
+                      String key = cart.keys.elementAt(index);
+                      CartItem item = cart[key] as CartItem;
+                      return (Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              item.title,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "₹${item.price}",
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "${item.quantity}",
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ));
+                    }),
               ),
               Text(type.toString()),
               const Divider(
@@ -154,16 +167,17 @@ class OrderCard extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(50, 0, 70, 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
+                  children: [
+                    
+                    const Text(
                       "Total",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      "₹1500",
-                      style: TextStyle(
+                      "₹$total",
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
