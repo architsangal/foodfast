@@ -3,8 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/userside/Cart/widgets/cart_item_widget.dart';
+import 'package:foodfast/screens/userside/models/order_item.dart';
 import 'package:foodfast/screens/userside/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/order_provider.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -17,9 +20,10 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    Provider.of<CartProvider>(context).getcart();
+    // Provider.of<CartProvider>(context).getcart();
 
     final cart = Provider.of<CartProvider>(context);
+    final acart = Provider.of<CartProvider>(context).cartItems;
     return Scaffold(
         body: Column(children: [
       Stack(
@@ -165,7 +169,15 @@ class _CartPageState extends State<CartPage> {
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    OrderItem ord = OrderItem(
+                        userid: 'abc',
+                        cart: acart,
+                        datetime: DateTime.now(),
+                        type: 'active');
+                    Provider.of<OrderProvider>(context, listen: false)
+                        .postorder(ord);
+                  },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [

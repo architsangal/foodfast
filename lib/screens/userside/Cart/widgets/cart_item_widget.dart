@@ -75,6 +75,7 @@ class CartItemWidget extends StatelessWidget {
                                       productId) ==
                                   0) {
                                 cart.removeItemFromCart(productId);
+                                cart.helperfunction(productId);
                               }
                             },
                             child: const Icon(

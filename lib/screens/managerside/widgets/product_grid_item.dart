@@ -60,13 +60,15 @@ class _ProductGridItemState extends State<ProductGridItem> {
 
                         Text(
                           product.title,
-                          style: const TextStyle(color: Color(0xFF333333), fontSize: 16),
+                          style: const TextStyle(
+                              color: Color(0xFF333333), fontSize: 16),
                         ),
                         // -------------------------------- Category in product card -------------------------------- //
 
                         Text(
                           product.category,
-                          style: const TextStyle(color: Color(0xFF707070), fontSize: 11),
+                          style: const TextStyle(
+                              color: Color(0xFF707070), fontSize: 11),
                         ),
                         const SizedBox(
                           height: 5,
@@ -75,7 +77,8 @@ class _ProductGridItemState extends State<ProductGridItem> {
 
                         Text(
                           product.price.toString(),
-                          style: const TextStyle(color: Color(0xFFE67F1F), fontSize: 16),
+                          style: const TextStyle(
+                              color: Color(0xFFE67F1F), fontSize: 16),
                         )
                       ],
                     )),

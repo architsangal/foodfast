@@ -101,6 +101,7 @@ class ProductGridItem extends StatelessWidget {
                                               product.id) ==
                                           0) {
                                         cart.removeItemFromCart(product.id);
+                                        cart.helperfunction(product.id);
                                       }
                                     },
                                     child: const Icon(
