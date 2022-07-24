@@ -89,11 +89,11 @@ class CartProvider with ChangeNotifier {
         .set({
       'cart': {
         productId: {
-          productId,
-          _cartItems[productId]!.title,
-          _cartItems[productId]!.quantity,
-          _cartItems[productId]!.price
-        }.toList(),
+          'id': productId,
+          'title': _cartItems[productId]!.title,
+          'price': _cartItems[productId]!.price,
+          'quantity': _cartItems[productId]!.quantity,
+        }
       }
     }, SetOptions(merge: true));
     notifyListeners();
@@ -117,11 +117,11 @@ class CartProvider with ChangeNotifier {
         .set({
       'cart': {
         productId: {
-          productId,
-          _cartItems[productId]!.title,
-          _cartItems[productId]!.quantity,
-          _cartItems[productId]!.price
-        }.toList(),
+          'id': productId,
+          'title': _cartItems[productId]!.title,
+          'price': _cartItems[productId]!.price,
+          'quantity': _cartItems[productId]!.quantity,
+        }
       }
     }, SetOptions(merge: true));
     notifyListeners();
@@ -147,11 +147,11 @@ class CartProvider with ChangeNotifier {
           .set({
         'cart': {
           productId: {
-            productId,
-            _cartItems[productId]!.title,
-            _cartItems[productId]!.quantity,
-            _cartItems[productId]!.price
-          }.toList(),
+            'id': productId,
+            'title': _cartItems[productId]!.title,
+            'price': _cartItems[productId]!.price,
+            'quantity': _cartItems[productId]!.quantity,
+          }
         }
       }, SetOptions(merge: true));
     } else {
@@ -169,7 +169,12 @@ class CartProvider with ChangeNotifier {
           .doc('iU5AaoINM2UBnOHQ0Sep')
           .set({
         'cart': {
-          productId: {productId, title, 1, price}.toList(),
+          productId: {
+            'id': productId,
+            'title': title,
+            'price': price,
+            'quantity': 1,
+          }
         }
       }, SetOptions(merge: true));
     }
