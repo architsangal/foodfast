@@ -13,10 +13,10 @@ class CartItem {
 
   factory CartItem.fromJson(dynamic json) {
     return CartItem(
-      id: json[0],
-      title: json[1],
-      quantity: json[2],
-      price: json[3],
+      id: json['id'],
+      title: json['title'],
+      quantity: json['quantity'],
+      price: json['price'],
     );
   }
 }
