@@ -18,7 +18,7 @@ class _CurrentOrdersState extends State<CurrentOrdersPage> {
   @override
   Widget build(BuildContext context) {
     Provider.of<OrderProvider>(context).getorder();
-    final order = Provider.of<OrderProvider>(context);
+    final orders = Provider.of<OrderProvider>(context);
 
     return Scaffold(
         body: SingleChildScrollView(
@@ -49,16 +49,26 @@ class _CurrentOrdersState extends State<CurrentOrdersPage> {
             ),
           ),
         ),
-        Container(
-          child:(order.order.type == "active")? OrderCard(
-              userid: order.order.userid,
-              cart: order.order.cart,
-              datetime: order.order.datetime,
-              type: order.order.type,
-              total: order.totalPriceAmount,):
-              (order.order.type == "rejected")? 
-              Text("order rejected"):
-              Text("order completed")
+        SizedBox(
+          height: 700,
+          child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: orders.orders.length,
+              itemBuilder: (context, index) {
+                String key = orders.orders.keys.elementAt(index);
+                OrderItem order = orders.orders[key] as OrderItem;
+                return (Container(
+                    child: (order.userid == "abc")
+                        ? null
+                        : (order.type == "active")
+                            ? OrderCard(
+                                userid: order.userid,
+                                cart: order.cart,
+                                datetime: order.datetime,
+                                type: order.type,
+                                total: 30.9)
+                            : null));
+              }),
         ),
       ]),
     ));
