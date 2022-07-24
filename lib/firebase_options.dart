@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '839893065184',
     projectId: 'foodfast-965db',
     storageBucket: 'foodfast-965db.appspot.com',
-    iosClientId: '839893065184-l4kn5r0j14lilhuc3gujvvtd6dlmdt1r.apps.googleusercontent.com',
+    iosClientId:
+        '839893065184-l4kn5r0j14lilhuc3gujvvtd6dlmdt1r.apps.googleusercontent.com',
     iosBundleId: 'com.example.testapp',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '839893065184',
     projectId: 'foodfast-965db',
     storageBucket: 'foodfast-965db.appspot.com',
-    iosClientId: '839893065184-l4kn5r0j14lilhuc3gujvvtd6dlmdt1r.apps.googleusercontent.com',
+    iosClientId:
+        '839893065184-l4kn5r0j14lilhuc3gujvvtd6dlmdt1r.apps.googleusercontent.com',
     iosBundleId: 'com.example.testapp',
   );
 }

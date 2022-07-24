@@ -56,7 +56,11 @@ class CartProvider with ChangeNotifier {
 // will check if a specific product is added to the cart or not by using the product id.
   bool checkProductAddedToCart(productId) {
     if (_cartItems.containsKey(productId)) {
-      return true;
+      if (_cartItems[productId]!.quantity > 0) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
@@ -173,13 +177,39 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void removeItemFromCart(String itemId) {
+  void removeItemFromCart(String itemId) async {
+    /*
+    **--Should solve this problem later--**
+       The Method  Below is quite inefficient since it is pulling the cart then updating it locally then pushing the whole cart again,
+        it should be able to modify the cart value directly,thus improving efficieny. 
+     */
     _cartItems.remove(itemId);
+    //  notifyListeners();
+  }
+
+  Future<void> helperfunction(String itemId) async {
+    DocumentSnapshot snapshot = await FirebaseFirestore.instance
+        .collection('Userdata')
+        .doc('iU5AaoINM2UBnOHQ0Sep')
+        .get();
+    Map<String, dynamic> c = snapshot.data()['cart'];
+    if (c.containsKey(itemId)) {
+      c.remove(itemId);
+    }
+    await FirebaseFirestore.instance
+        .collection('Userdata')
+        .doc('iU5AaoINM2UBnOHQ0Sep')
+        .set({'cart': c}, SetOptions(merge: false));
     notifyListeners();
   }
 
-  void clearCart() {
+  Future<void> clearCart() async {
     _cartItems = {};
-    notifyListeners();
+    await FirebaseFirestore.instance
+        .collection('Userdata')
+        .doc('iU5AaoINM2UBnOHQ0Sep')
+        .update({
+      'cart': {FieldValue.delete()}
+    });
   }
 }
