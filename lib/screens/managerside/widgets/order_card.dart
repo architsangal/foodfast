@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/userside/models/cart_item.dart';
 import 'package:flutter/foundation.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'dart:convert';
 
 class OrderCard extends StatelessWidget {
@@ -79,10 +80,20 @@ class OrderCard extends StatelessWidget {
                       ),
                       child: TextButton(
                         onPressed: () {
-                          FirebaseFirestore.instance
-                              .collection("Orders")
-                              .doc("l54bKCfJj8LpZ9bIsBCe")
-                              .update({"type": "completed"});
+                          Future<QuerySnapshot> querySnapshot =
+                              FirebaseFirestore.instance
+                                  .collection('Orders')
+                                  .where("userid", isEqualTo: userid)
+                                  .where("type",isEqualTo: "active")
+                                  .get();
+                          querySnapshot.then((QuerySnapshot query) {
+                            for (var doc in query.docs) {
+                              FirebaseFirestore.instance
+                                .collection("Orders")
+                                .doc(doc.id)
+                                .update({"type": "completed"});
+                            }
+                          });
                         },
                         child: const Text(
                           "Ready",
@@ -110,10 +121,20 @@ class OrderCard extends StatelessWidget {
                       ),
                       child: TextButton(
                           onPressed: () {
-                            FirebaseFirestore.instance
+                            Future<QuerySnapshot> querySnapshot =
+                              FirebaseFirestore.instance
+                                  .collection('Orders')
+                                  .where("userid", isEqualTo: userid)
+                                  .where("type",isEqualTo: "active")
+                                  .get();
+                          querySnapshot.then((QuerySnapshot query) {
+                            for (var doc in query.docs) {
+                              FirebaseFirestore.instance
                                 .collection("Orders")
-                                .doc("l54bKCfJj8LpZ9bIsBCe")
+                                .doc(doc.id)
                                 .update({"type": "rejected"});
+                            }
+                          });
                           },
                           child: const Text(
                             "Reject",
@@ -168,7 +189,6 @@ class OrderCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    
                     const Text(
                       "Total",
                       style: TextStyle(
@@ -189,6 +209,5 @@ class OrderCard extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
