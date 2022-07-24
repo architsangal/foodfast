@@ -5,39 +5,45 @@ import '../models/cart_item.dart';
 import '../models/order_item.dart';
 
 class OrderProvider with ChangeNotifier {
-  late OrderItem order = OrderItem(
-      userid: 'abc',
-      cart: {},
-      datetime: DateTime.utc(1969, 7, 20, 20, 18, 04),
-      type: 'active');
-
+  late Map<String, OrderItem> orders = {
+    'dummyorder': OrderItem(
+        userid: 'abc',
+        cart: {},
+        datetime: DateTime.utc(1969, 7, 20, 20, 18, 04),
+        type: 'active')
+  };
   // get all orders
   Future<void> getorder() async {
-    DocumentSnapshot snapshot = await FirebaseFirestore.instance
-        .collection('Orders')
-        .doc('S2QUhdrBMiRAhc4J7XbI')
-        .get();
+    QuerySnapshot snapshots =
+        await FirebaseFirestore.instance.collection('Orders').get();
 
-    if (snapshot.exists) {
-      Map<String, dynamic> data = snapshot.data();
+    for (var doc in snapshots.docs) {
+      var orderid = doc.id.toString();
+      orders[orderid] = OrderItem(
+            userid: 'abc',
+            cart: {},
+            datetime: DateTime.utc(1969, 7, 20, 20, 18, 04),
+            type: 'active');
+          
+      Map<String, dynamic> data = doc.data();
       Timestamp t = data['datetime'];
-      order.datetime =
+      orders[orderid]!.datetime =
           DateTime.fromMillisecondsSinceEpoch(t.millisecondsSinceEpoch);
-      order.type = data['type'];
-      order.userid = data['userid'];
+      orders[orderid]!.type = data['type'];
+      orders[orderid]!.userid = data['userid'];
 
       var cartData = data['cart'] as Map<String, dynamic>;
 // Iterating through a map and parsing every
       cartData.forEach((key, value) {
         CartItem cata = CartItem.fromJson(value);
-        order.cart.putIfAbsent(key, () => cata);
+        orders[orderid]!.cart.putIfAbsent(key, () => cata);
       });
-    } else {}
+    }
+
     notifyListeners();
   }
 
   Future<void> postorder(OrderItem ord) async {
-    order = ord;
     if (ord.cart.isNotEmpty) {
       DocumentSnapshot snapshot = await FirebaseFirestore.instance
           .collection('Userdata')
@@ -54,11 +60,11 @@ class OrderProvider with ChangeNotifier {
     }
   }
 
-  double get totalPriceAmount {
-    var total = 0.0;
-    order.cart.forEach((key, cartitem) {
-      total += cartitem.price * cartitem.quantity;
-    });
-    return total;
-  }
+//   double get totalPriceAmount {
+//     var total = 0.0;
+//     order.cart.forEach((key, cartitem) {
+//       total += cartitem.price * cartitem.quantity;
+//     });
+//     return total;
+//   }
 }
