@@ -53,4 +53,12 @@ class OrderProvider with ChangeNotifier {
       });
     }
   }
+
+  double get totalPriceAmount {
+    var total = 0.0;
+    order.cart.forEach((key, cartitem) {
+      total += cartitem.price * cartitem.quantity;
+    });
+    return total;
+  }
 }
