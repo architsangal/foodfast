@@ -6,27 +6,40 @@ import 'package:flutter/material.dart';
 
 class ProductsProvider with ChangeNotifier {
   late List<Product> _products = [];
+  late List<Product> _allproducts = [];
   late List<String> _categories = [];
-
+  late String cat = "Beverages";
   Future<void> getproducts() async {
+    print("PRODUCTS BOUGHT IN");
     List<Product> stuffList = [];
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('Products').get();
     for (var element in querySnapshot.docs) {
       Product p = Product(
-        id: element.data()['id'],
-        title: element.data()['title'],
-        description: element.data()['description'],
-        price: element.data()['price'],
-        category: element.data()['category'],
-        availability: true,
-        // availability: element.data()['availability']
-      );
+          id: element.data()['id'],
+          title: element.data()['title'],
+          description: element.data()['description'],
+          price: element.data()['price'],
+          category: element.data()['category'],
+          availability: element.data()['availability']);
       stuffList.add(p);
-      _products = stuffList;
+      _allproducts = stuffList;
+      _products = _allproducts
+          .where((element) =>
+              element.category == cat && element.availability == "available")
+          .toList();
     }
 
     notifyListeners();
+  }
+
+  void updatecat(String category) {
+    cat = category;
+    _products = _allproducts
+        .where((element) =>
+            element.category == cat && element.availability == "available")
+        .toList();
+    print(_products[0].title);
   }
 
   // getterss

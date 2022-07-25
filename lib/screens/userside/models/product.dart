@@ -6,7 +6,7 @@ class Product with ChangeNotifier {
   final String description;
   final double price;
   final String category;
-  final bool availability;
+  final String availability;
 
   Product({
     required this.id,
