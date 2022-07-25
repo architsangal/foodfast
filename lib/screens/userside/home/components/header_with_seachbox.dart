@@ -97,7 +97,8 @@ class HeaderWithSearchBox extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        // print(categories[index]);
+                        Provider.of<ProductsProvider>(context, listen: false)
+                            .updatecat(categories[index]);
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(

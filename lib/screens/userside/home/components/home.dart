@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/userside/providers/products_provider.dart';
 import 'package:provider/provider.dart';
+import '../../providers/cart_provider.dart';
 import '../widgets/products_grid.dart';
 import 'header_with_seachbox.dart';
 
@@ -26,18 +27,20 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    Provider.of<CartProvider>(context).getcart();
+    print("PROVIDER TRIGGERED");
     // It will provie us total height  and width of our screen
     Size size = MediaQuery.of(context).size;
     // it enable scrolling on small device
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            HeaderWithSearchBox(size: size),
-            const ProductsGrid(),
-          ],
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          HeaderWithSearchBox(size: size),
+          const SingleChildScrollView(
+            child: ProductsGrid(),
+          )
+        ],
       ),
     );
   }

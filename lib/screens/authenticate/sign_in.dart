@@ -5,6 +5,9 @@ import 'package:foodfast/screens/authenticate/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodfast/screens/userside/home/main_screen.dart';
 import 'package:foodfast/screens/managerside/main_screen.dart' as managerside;
+import 'package:provider/provider.dart';
+
+import '../userside/providers/cart_provider.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -165,6 +168,7 @@ class _SignInState extends State<SignIn> {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => const managerside.MainScreen()));
       } else {
+        //   Provider.of<CartProvider>(context).getcart();
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => const MainScreen()));
       }
