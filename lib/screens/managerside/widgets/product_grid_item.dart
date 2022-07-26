@@ -9,7 +9,7 @@ class ProductGridItem extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
   final index;
 
-  const ProductGridItem(this.index, {Key? key}) : super(key: key);
+  ProductGridItem(this.index, {Key? key}) : super(key: key);
 
   @override
   State<ProductGridItem> createState() => _ProductGridItemState();
@@ -17,9 +17,10 @@ class ProductGridItem extends StatefulWidget {
 
 class _ProductGridItemState extends State<ProductGridItem> {
   @override
+  late List<bool> isSelected = [true, false, false];
+
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
-    List<bool> isSelected = [true, false, false];
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -85,13 +86,9 @@ class _ProductGridItemState extends State<ProductGridItem> {
                 const Spacer(),
                 // -------------------------------- FOOTER(COUNTER WIDGET PART OF THE PRODUCT CARD) -------------------------------- //
                 ToggleButtons(
-                  children: <Widget>[
-                    Icon(Icons.done_rounded),
-                    Icon(Icons.priority_high),
-                    Icon(Icons.close),
-                  ],
                   onPressed: (int index) {
                     setState(() {
+                      isSelected = [false, false, false];
                       isSelected[index] = !isSelected[index];
                     });
                   },
@@ -100,6 +97,11 @@ class _ProductGridItemState extends State<ProductGridItem> {
                   fillColor: Colors.orange,
                   renderBorder: false,
                   isSelected: isSelected,
+                  children: const <Widget>[
+                    Icon(Icons.done_rounded),
+                    Icon(Icons.priority_high),
+                    Icon(Icons.close),
+                  ],
                 ),
               ],
             ),

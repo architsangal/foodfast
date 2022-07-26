@@ -28,7 +28,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Provider.of<CartProvider>(context).getcart();
-    print("PROVIDER TRIGGERED");
     // It will provie us total height  and width of our screen
     Size size = MediaQuery.of(context).size;
     // it enable scrolling on small device
