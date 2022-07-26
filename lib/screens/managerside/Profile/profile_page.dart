@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
+import 'package:foodfast/screens/managerside/Profile/widgets/order_card.dart';
+import 'package:foodfast/screens/userside/models/order_item.dart';
+import 'package:foodfast/screens/userside/providers/order_provider.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -13,6 +17,9 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    Provider.of<OrderProvider>(context).getorder;
+    final orders = Provider.of<OrderProvider>(context);
+
     return Scaffold(
         body: Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -124,280 +131,26 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 2),
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          height: 28,
-          width: MediaQuery.of(context).size.width,
-          child: Row(
-            children: [
-              InkWell(
-                onTap: () {
-                  // print(categories[index]);
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-                  margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Color(0xFFFF6838),
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text('Rejected',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFFFF6838),
-                        )),
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  // print(categories[index]);
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-                  margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Color(0xFFFECE35),
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: Center(
-                    child: Text('Completed',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFFFECE35),
-                        )),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
-                blurRadius: 2.0,
-                spreadRadius: 0.0,
-                offset: Offset(0, 2),
-              ), //BoxShadow
-              //BoxShadow
-            ],
-          ),
-          // alignment: Alignment.topLeft,
-          margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-          child: Card(
-            color: Colors.white,
-            //  elevation: 3,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-              side: BorderSide(
-                color: Colors.grey.withOpacity(0.1),
-                width: 1,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                // Green container at the middle of the top.
-                TextButton(
-                  onPressed: () {},
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 34,
-                    width: 98,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF35BF7D),
-                      borderRadius:
-                          BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.25),
-                          blurRadius: 4.0,
-                          spreadRadius: 0.0,
-                          offset: Offset(0, 2),
-                        ), //BoxShadow
-                        //BoxShadow
-                      ],
-                    ),
-                    child: Text(
-                      "Active",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                        //fontFamily: 'Ubuntu',
-                      ),
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Fried Rice",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "₹100",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "x3",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Fried Rice",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "₹100",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "x3",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Fried Rice",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "₹100",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "x3",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Fried Rice",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "₹100",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "x3",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Fried Rice",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "₹100",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "x3",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  thickness: 1,
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(50, 0, 70, 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Total",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "₹1500",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+        SizedBox(
+          height: 450,
+          child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: orders.orders.length,
+              itemBuilder: (context, index) {
+                String key = orders.orders.keys.elementAt(index);
+                OrderItem order = orders.orders[key] as OrderItem;
+                return (Container(
+                    child: (order.userid == "abc")
+                        ? null
+                        : (order.type != "active")
+                            ? OrderCard(
+                                userid: order.userid,
+                                cart: order.cart,
+                                datetime: order.datetime,
+                                type: order.type,
+                                total: 30.9)
+                            : null));
+              }),
         ),
       ],
     ));
