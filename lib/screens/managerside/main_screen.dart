@@ -36,8 +36,8 @@ class _Mainwindowstate extends State<MainScreen> {
         onPageChanged: onPageChanged,
         // ignore: sort_child_properties_last
         children: <Widget>[
-          Home(),
           CurrentOrdersPage(),
+          Home(),
           ProfilePage(),
         ],
         physics: NeverScrollableScrollPhysics(),
@@ -45,15 +45,16 @@ class _Mainwindowstate extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_rounded),
-            label: 'Home',
-            backgroundColor: Colors.black,
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.receipt),
             label: 'Current Orders',
             backgroundColor: Colors.black,
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_rounded),
+            label: 'Home',
+            backgroundColor: Colors.black,
+          ),
+          
           BottomNavigationBarItem(
             icon: Icon(Icons.person_rounded),
             label: 'Profile',

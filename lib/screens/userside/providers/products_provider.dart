@@ -8,9 +8,8 @@ class ProductsProvider with ChangeNotifier {
   late List<Product> _products = [];
   late List<Product> _allproducts = [];
   late List<String> _categories = [];
-  late String cat = "Beverages";
+  late String cat = "default";
   Future<void> getproducts() async {
-    print("PRODUCTS BOUGHT IN");
     List<Product> stuffList = [];
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('Products').get();
@@ -24,10 +23,14 @@ class ProductsProvider with ChangeNotifier {
           availability: element.data()['availability']);
       stuffList.add(p);
       _allproducts = stuffList;
-      _products = _allproducts
-          .where((element) =>
-              element.category == cat && element.availability == "available")
-          .toList();
+      if (cat == "default") {
+        _products = _allproducts;
+      } else {
+        _products = _allproducts
+            .where((element) =>
+                element.category == cat && element.availability == "available")
+            .toList();
+      }
     }
 
     notifyListeners();
