@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
-import '../../userside/models/product.dart';
+import '../../../userside/models/product.dart';
 
 class ProductGridItem extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
@@ -19,6 +20,13 @@ class _ProductGridItemState extends State<ProductGridItem> {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
+    if (product.availability == "available") {
+      isSelected = [true, false, false];
+    } else if (product.availability == "outofstock") {
+      isSelected = [false, false, true];
+    } else {
+      isSelected = [false, true, false];
+    }
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -88,6 +96,32 @@ class _ProductGridItemState extends State<ProductGridItem> {
                     setState(() {
                       isSelected = [false, false, false];
                       isSelected[index] = !isSelected[index];
+                      Future<QuerySnapshot> querySnapshot = FirebaseFirestore
+                          .instance
+                          .collection('Products')
+                          .where("id", isEqualTo: product.id)
+                          .get();
+                      querySnapshot.then((QuerySnapshot query) {
+                        for (var doc in query.docs) {
+                          if (index == 0) {
+                            FirebaseFirestore.instance
+                                .collection("Products")
+                                .doc(doc.id)
+                                .update({"availability": "available"});
+                          } else if (index == 1) {
+                            FirebaseFirestore.instance
+                                .collection("Products")
+                                .doc(doc.id)
+                                .update({"availability": "finishingsoon"});
+                          }
+                          else{
+                            FirebaseFirestore.instance
+                            .collection("Products")
+                            .doc(doc.id)
+                            .update({"availability": "outofstock"});
+                          }
+                        }
+                      });
                     });
                   },
                   color: Colors.orange,
