@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
               height: MediaQuery.of(context).size.height * 0.05,
               width: MediaQuery.of(context).size.width,
             ),
-            ProductsGrid(),
+            const ProductsGrid(),
           ],
         ),
       ),

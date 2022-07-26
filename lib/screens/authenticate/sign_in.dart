@@ -5,9 +5,6 @@ import 'package:foodfast/screens/authenticate/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodfast/screens/userside/home/main_screen.dart';
 import 'package:foodfast/screens/managerside/main_screen.dart' as managerside;
-import 'package:provider/provider.dart';
-
-import '../userside/providers/cart_provider.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -160,8 +157,7 @@ class _SignInState extends State<SignIn> {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
               email: _controllerEMail.text, password: _controllerPassword.text);
-      // ignore: avoid_print
-      print(userCredential.toString());
+
       // ignore: use_build_context_synchronously
       // ignore: use_build_context_synchronously
       if (_controllerEMail.text == "manager@iiitb.org") {

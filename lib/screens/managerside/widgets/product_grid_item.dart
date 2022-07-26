@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/userside/providers/cart_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
@@ -9,16 +8,15 @@ class ProductGridItem extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
   final index;
 
-  ProductGridItem(this.index, {Key? key}) : super(key: key);
+  const ProductGridItem(this.index, {Key? key}) : super(key: key);
 
   @override
   State<ProductGridItem> createState() => _ProductGridItemState();
 }
 
 class _ProductGridItemState extends State<ProductGridItem> {
-  @override
   late List<bool> isSelected = [true, false, false];
-
+  @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
     return Padding(
