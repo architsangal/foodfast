@@ -42,7 +42,6 @@ class ProductsProvider with ChangeNotifier {
         .where((element) =>
             element.category == cat && element.availability == "available")
         .toList();
-    print(_products[0].title);
   }
 
   // getterss
