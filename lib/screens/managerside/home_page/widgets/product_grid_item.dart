@@ -74,12 +74,14 @@ class _ProductGridItemState extends State<ProductGridItem> {
                                   color: Color(0xFF333333), fontSize: 16),
                             ),
                             IconButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          const ProductEdit()));
-                                },
-                                icon: Icon(Icons.edit))
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        ProductEdit(product.id)));
+                              },
+                              icon: const Icon(Icons.edit),
+                              iconSize: 18,
+                            ),
                           ],
                         ),
                         // -------------------------------- Category in product card -------------------------------- //
