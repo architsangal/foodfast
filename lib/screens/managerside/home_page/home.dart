@@ -41,7 +41,10 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const Text('Store'),
+                const Text(
+                  'Store',
+                  style: TextStyle(fontSize: 25),
+                ),
                 FlutterSwitch(
                     toggleColor: Colors.white,
                     activeColor: const Color(0xFFE67F1F),
