@@ -41,7 +41,10 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const Text('Store'),
+                const Text(
+                  'Store',
+                  style: TextStyle(fontSize: 25),
+                ),
                 FlutterSwitch(
                     toggleColor: Colors.white,
                     activeColor: const Color(0xFFE67F1F),
@@ -60,22 +63,21 @@ class _HomeState extends State<Home> {
                       setState(() {
                         store_open = val;
                         Future<QuerySnapshot> querySnapshot = FirebaseFirestore
-                          .instance
-                          .collection('Essentials')
-                          .get();
-                      querySnapshot.then((QuerySnapshot query) {
-                        for (var doc in query.docs) {
+                            .instance
+                            .collection('Essentials')
+                            .get();
+                        querySnapshot.then((QuerySnapshot query) {
+                          for (var doc in query.docs) {
                             FirebaseFirestore.instance
                                 .collection("Essentials")
                                 .doc(doc.id)
                                 .update({"store_open": val});
-                          }});
-                          
+                          }
+                        });
                       });
                     }),
               ],
             ),
-            
             const ProductsGrid(),
           ],
         ),
