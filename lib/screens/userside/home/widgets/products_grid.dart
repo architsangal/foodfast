@@ -13,7 +13,7 @@ class ProductsGrid extends StatelessWidget {
     Provider.of<ProductsProvider>(context).getproducts();
 
     final products = Provider.of<ProductsProvider>(context).products;
-    return Container(
+    return SizedBox(
         height: MediaQuery.of(context).size.height * 0.69,
         width: MediaQuery.of(context).size.width,
         child: ListView.builder(
