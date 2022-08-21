@@ -22,7 +22,7 @@ class HeaderWithSearchBox extends StatelessWidget {
     Provider.of<ProductsProvider>(context).getcategories();
     categories = Provider.of<ProductsProvider>(context).categories;
     return Container(
-      // It will cover 20% of our total height
+      // It will cover 20% of our total heigh
       height: size.height * 0.2,
       child: Stack(
         fit: StackFit.loose,
