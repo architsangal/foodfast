@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/authenticate/forgot_password.dart';
 import 'package:foodfast/screens/authenticate/register.dart';
@@ -161,10 +163,12 @@ class _SignInState extends State<SignIn> {
       // ignore: use_build_context_synchronously
       // ignore: use_build_context_synchronously
       if (_controllerEMail.text == "manager@iiitb.org") {
+        // ignore: use_build_context_synchronously
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => const managerside.MainScreen()));
       } else {
         //   Provider.of<CartProvider>(context).getcart();
+        // ignore: use_build_context_synchronously
         Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => const MainScreen()));
       }
