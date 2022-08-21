@@ -23,7 +23,7 @@ class HeaderWithSearchBox extends StatelessWidget {
     categories = Provider.of<ProductsProvider>(context).categories;
     return Container(
       // It will cover 20% of our total height
-      height: size.height * 0.23,
+      height: size.height * 0.2,
       child: Stack(
         fit: StackFit.loose,
         children: <Widget>[
@@ -33,7 +33,7 @@ class HeaderWithSearchBox extends StatelessWidget {
               right: kDefaultPadding,
               bottom: 36 + kDefaultPadding,
             ),
-            height: size.height * 0.26 - 27,
+            height: size.height * 0.24 - 27,
             decoration: const BoxDecoration(
               color: Color(0xFFCF4134),
               borderRadius: BorderRadius.only(
@@ -125,17 +125,6 @@ class HeaderWithSearchBox extends StatelessWidget {
                   }),
             ),
           ),
-          Positioned(
-            top: 166,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 24,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
-            ),
-          )
         ],
       ),
     );
