@@ -19,8 +19,10 @@ class ProductsProvider with ChangeNotifier {
     if (cat == "default") {
       _products = _allproducts;
     } else {
-      _products =
-          _allproducts.where((element) => element.category == cat).toList();
+      _products = _allproducts
+          .where((element) =>
+              element.category == cat && element.availability == "available")
+          .toList();
     }
     return _products;
     //&& element.availability == "available" --> add the availability part

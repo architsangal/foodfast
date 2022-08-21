@@ -60,22 +60,21 @@ class _HomeState extends State<Home> {
                       setState(() {
                         store_open = val;
                         Future<QuerySnapshot> querySnapshot = FirebaseFirestore
-                          .instance
-                          .collection('Essentials')
-                          .get();
-                      querySnapshot.then((QuerySnapshot query) {
-                        for (var doc in query.docs) {
+                            .instance
+                            .collection('Essentials')
+                            .get();
+                        querySnapshot.then((QuerySnapshot query) {
+                          for (var doc in query.docs) {
                             FirebaseFirestore.instance
                                 .collection("Essentials")
                                 .doc(doc.id)
                                 .update({"store_open": val});
-                          }});
-                          
+                          }
+                        });
                       });
                     }),
               ],
             ),
-            
             const ProductsGrid(),
           ],
         ),

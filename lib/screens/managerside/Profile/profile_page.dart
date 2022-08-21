@@ -38,7 +38,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ),
-        
         Container(
           alignment: Alignment.topLeft,
           margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
