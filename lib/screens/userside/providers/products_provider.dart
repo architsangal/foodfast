@@ -5,12 +5,30 @@ import 'package:foodfast/screens/userside/models/product.dart';
 import 'package:flutter/material.dart';
 
 class ProductsProvider with ChangeNotifier {
-  late List<Product> _products = [];
+  late List<Product> _products;
   late List<Product> _allproducts = [];
   late List<String> _categories = [];
   late String cat = "default";
+
+  List<String> get categories {
+    return _categories;
+  }
+
+  List<Product> get products {
+    //  print(_products);
+    if (cat == "default") {
+      _products = _allproducts;
+    } else {
+      _products =
+          _allproducts.where((element) => element.category == cat).toList();
+    }
+    return _products;
+    //&& element.availability == "available" --> add the availability part
+  }
+
   Future<void> getproducts() async {
     List<Product> stuffList = [];
+    _products = [];
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('Products').get();
     for (var element in querySnapshot.docs) {
@@ -38,37 +56,9 @@ class ProductsProvider with ChangeNotifier {
 
   void updatecat(String category) {
     cat = category;
-    _products = _allproducts
-        .where((element) =>
-            element.category == cat && element.availability == "available")
-        .toList();
+    // print(_allproducts);
   }
 
-  // getterss
-  //  List<Product> get products => [..._products];
-  List<Product> get products {
-    return _products;
-  }
-
-  /*
-  Future<void> addProduct(Product product) {
-    const String url =
-        "https://flutter-shop-7ddca.firebaseio.com/products.json";
-    return http
-        .post(url,
-            body: json.encode({
-              'title': product.title,
-              'description': product.description,
-              'price': product.price,
-            }))
-        .then((response) {
-      _products.add(product);
-      notifyListeners();
-    }).catchError((err) {
-      // Print Something ...
-    });
-  } 
-  */
   Future<void> getcategories() async {
     List<String> categorieslist = [];
 
@@ -83,10 +73,6 @@ class ProductsProvider with ChangeNotifier {
     });
     _categories = categorieslist;
     notifyListeners();
-  }
-
-  List<String> get categories {
-    return _categories;
   }
 
   void updateProduct(String id, Product product) {
@@ -106,3 +92,26 @@ class ProductsProvider with ChangeNotifier {
     return _products.firstWhere((product) => product.id == id);
   }
 }
+
+
+
+
+/*
+  Future<void> addProduct(Product product) {
+    const String url =
+        "https://flutter-shop-7ddca.firebaseio.com/products.json";
+    return http
+        .post(url,
+            body: json.encode({
+              'title': product.title,
+              'description': product.description,
+              'price': product.price,
+            }))
+        .then((response) {
+      _products.add(product);
+      notifyListeners();
+    }).catchError((err) {
+      // Print Something ...
+    });
+  } 
+  */
