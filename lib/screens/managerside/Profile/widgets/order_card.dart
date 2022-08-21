@@ -1,9 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/userside/models/cart_item.dart';
-import 'package:flutter/foundation.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'dart:convert';
 
 class OrderCard extends StatelessWidget {
   final String userid;
@@ -57,39 +53,46 @@ class OrderCard extends StatelessWidget {
               
               SizedBox(
                 height: 100,
-                child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: cart.length,
-                    itemBuilder: (context, index) {
-                      String key = cart.keys.elementAt(index);
-                      CartItem item = cart[key] as CartItem;
-                      return (Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              item.title,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
+                
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: cart.length,
+                      itemBuilder: (context, index) {
+                        String key = cart.keys.elementAt(index);
+                        CartItem item = cart[key] as CartItem;
+                        return (Padding(
+                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width: 55,
+                                child: Text(
+                                  item.title,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
-                            ),
-                            Text(
-                              "₹${item.price}",
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
+                              Text(
+                                "₹${item.price}",
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "${item.quantity}",
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
+                              Text(
+                                "${item.quantity}",
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ));
-                    }),
+                            ],
+                          ),
+                        ));
+                      }),
+                ),
               ),
               Text(type.toString()),
               const Divider(
