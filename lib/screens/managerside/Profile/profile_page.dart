@@ -38,87 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ),
-        Container(
-          alignment: Alignment.topLeft,
-          margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
-          child: Text(
-            "User Info",
-            style: TextStyle(
-              color: Color(0xFF0A191E),
-              fontSize: 25,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-        Container(
-          alignment: Alignment.topLeft,
-          margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-          child: Card(
-            color: Colors.white,
-            //  elevation: 3,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-              side: BorderSide(
-                color: Colors.grey.withOpacity(0.1),
-                width: 1,
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: Padding(
-                padding: const EdgeInsets.all(2),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    // -------------------------------- Name -------------------------------- //
-                    Text(
-                      "Test User",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    // -------------------------------- Email Id-------------------------------- //
-                    SizedBox(height: 2),
-                    Text(
-                      "testuser@iiitb.org",
-                      style: TextStyle(
-                        color: Colors.black.withOpacity(0.5),
-                        fontWeight: FontWeight.w500,
-                        fontSize: 11,
-                      ),
-                    ),
-                    // -------------------------------- Monthly Expenditure -------------------------------- //
-                    Divider(
-                      thickness: 1,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(0, 2, 20, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "This Months Expenditure",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            "₹4500",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
+        
         Container(
           alignment: Alignment.topLeft,
           margin: EdgeInsets.fromLTRB(20, 10, 10, 10),
@@ -132,7 +52,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
         SizedBox(
-          height: 450,
+          height: 625,
           child: ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: orders.orders.length,
