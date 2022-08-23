@@ -1,5 +1,7 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:foodfast/screens/managerside/Product_edit_page/Product_edit.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
@@ -65,10 +67,23 @@ class _ProductGridItemState extends State<ProductGridItem> {
                       children: <Widget>[
                         // -------------------------------- Title in product card -------------------------------- //
 
-                        Text(
-                          product.title,
-                          style: const TextStyle(
-                              color: Color(0xFF333333), fontSize: 16),
+                        Row(
+                          children: [
+                            Text(
+                              product.title,
+                              style: const TextStyle(
+                                  color: Color(0xFF333333), fontSize: 16),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        ProductEdit(product.id)));
+                              },
+                              icon: const Icon(Icons.edit),
+                              iconSize: 18,
+                            ),
+                          ],
                         ),
                         // -------------------------------- Category in product card -------------------------------- //
 
@@ -113,12 +128,11 @@ class _ProductGridItemState extends State<ProductGridItem> {
                                 .collection("Products")
                                 .doc(doc.id)
                                 .update({"availability": "finishingsoon"});
-                          }
-                          else{
+                          } else {
                             FirebaseFirestore.instance
-                            .collection("Products")
-                            .doc(doc.id)
-                            .update({"availability": "outofstock"});
+                                .collection("Products")
+                                .doc(doc.id)
+                                .update({"availability": "outofstock"});
                           }
                         }
                       });
