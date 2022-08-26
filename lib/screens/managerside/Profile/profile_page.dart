@@ -17,7 +17,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    Provider.of<OrderProvider>(context).getorder();
+    Provider.of<OrderProvider>(context).getorder;
     final orders = Provider.of<OrderProvider>(context);
     return Scaffold(
         body: Column(
