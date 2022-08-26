@@ -1,28 +1,25 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
+import 'package:foodfast/screens/providers/order_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../managerside/Current_orders/widgets/order_card.dart';
+import '../../managerside/Profile/widgets/order_card.dart';
 import '../models/order_item.dart';
-import '../providers/order_provider.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class userProfilePage extends StatefulWidget {
+  const userProfilePage({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _ProfilePageState createState() => _ProfilePageState();
+  _userProfilePageState createState() => _userProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _userProfilePageState extends State<userProfilePage> {
   @override
   Widget build(BuildContext context) {
-    Provider.of<OrderProvider>(context).getorder;
+    Provider.of<OrderProvider>(context).getorder();
     final orders = Provider.of<OrderProvider>(context);
-    // print("down");
-    //  print(orders.orders);
-    // print(orders.orders.length);
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -222,26 +219,28 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
-          SizedBox(
-            height: 400,
-            child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: orders.orders.length,
-                itemBuilder: (context, index) {
-                  String key = orders.orders.keys.elementAt(index);
-                  OrderItem order = orders.orders[key] as OrderItem;
-                  return (Container(
-                      child: (order.userid == "abc")
-                          ? null
-                          : (order.type != "active")
-                              ? OrderCard(
-                                  userid: order.userid,
-                                  cart: order.cart,
-                                  datetime: order.datetime,
-                                  type: order.type,
-                                  total: 30.9)
-                              : null));
-                }),
+          SingleChildScrollView(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.5,
+              child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: orders.orders.length,
+                  itemBuilder: (context, index) {
+                    String key = orders.orders.keys.elementAt(index);
+                    OrderItem order = orders.orders[key] as OrderItem;
+                    return (Container(
+                        child: (order.userid == "abc")
+                            ? null
+                            : (order.type == "completed")
+                                ? OrderCard(
+                                    userid: order.userid,
+                                    cart: order.cart,
+                                    datetime: order.datetime,
+                                    type: order.type,
+                                    total: 30.9)
+                                : null));
+                  }),
+            ),
           ),
         ],
       ),

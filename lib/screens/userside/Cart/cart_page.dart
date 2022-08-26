@@ -2,12 +2,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foodfast/screens/providers/order_provider.dart';
 import 'package:foodfast/screens/userside/Cart/widgets/cart_item_widget.dart';
 import 'package:foodfast/screens/userside/models/order_item.dart';
-import 'package:foodfast/screens/userside/providers/cart_provider.dart';
+import 'package:foodfast/screens/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
-
-import '../providers/order_provider.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);

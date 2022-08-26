@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_core/firebase_core.dart';
 import 'package:foodfast/screens/authenticate/sign_in.dart';
-import 'package:foodfast/screens/userside/providers/order_provider.dart';
-import 'package:foodfast/screens/userside/providers/products_provider.dart';
+import 'package:foodfast/screens/providers/cart_provider.dart';
+import 'package:foodfast/screens/providers/order_provider.dart';
+import 'package:foodfast/screens/providers/products_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
-import 'screens/userside/providers/cart_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

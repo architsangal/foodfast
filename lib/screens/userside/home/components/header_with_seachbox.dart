@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:foodfast/constants.dart';
+import 'package:foodfast/screens/providers/products_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
-
-import '../../providers/products_provider.dart';
 
 class HeaderWithSearchBox extends StatelessWidget {
   List categories = [];
