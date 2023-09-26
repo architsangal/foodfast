@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/userside/home/widgets/product_grid_item.dart';
-import 'package:foodfast/screens/userside/providers/products_provider.dart';
+import 'package:foodfast/screens/providers/products_provider.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 

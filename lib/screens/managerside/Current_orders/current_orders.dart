@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/managerside/Current_orders/widgets/order_card.dart';
 import 'package:foodfast/screens/userside/models/order_item.dart';
-import 'package:foodfast/screens/userside/providers/order_provider.dart';
+import 'package:foodfast/screens/providers/order_provider.dart';
 import 'package:provider/provider.dart';
 
 class CurrentOrdersPage extends StatefulWidget {

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:foodfast/screens/userside/Cart/cart_page.dart';
-import 'package:foodfast/screens/userside/Profile/profile_page.dart';
+import 'package:foodfast/screens/userside/Profile/user_profile_page.dart';
 import 'package:foodfast/screens/userside/home/components/home.dart';
 
 class MainScreen extends StatefulWidget {
@@ -38,7 +38,7 @@ class _Mainwindowstate extends State<MainScreen> {
         children: <Widget>[
           Home(),
           CartPage(),
-          ProfilePage(),
+          userProfilePage(),
         ],
         physics: NeverScrollableScrollPhysics(),
       ),

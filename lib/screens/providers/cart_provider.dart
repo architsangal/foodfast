@@ -1,8 +1,7 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-
-import '../models/cart_item.dart';
+import 'package:foodfast/screens/userside/models/cart_item.dart';
 
 class CartProvider with ChangeNotifier {
   // Every cartItem have unique id not the id of product

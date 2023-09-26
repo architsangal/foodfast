@@ -1,10 +1,8 @@
-// ignore_for_file: sort_child_properties_last, unused_import, import_of_legacy_library_into_null_safe
+// ignore_for_file: sort_child_properties_last, import_of_legacy_library_into_null_safe
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:foodfast/screens/userside/providers/products_provider.dart';
+import 'package:foodfast/screens/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
-import '../../providers/cart_provider.dart';
 import '../widgets/products_grid.dart';
 import 'header_with_seachbox.dart';
 
